@@ -80,7 +80,7 @@ export function HeroSection() {
           >
             <div className="relative">
               <motion.div
-                className="size-32 overflow-hidden rounded-full border-4 border-primary/20 shadow-2xl md:size-40"
+                className="relative z-10 size-32 overflow-hidden rounded-full border-4 border-primary/20 shadow-2xl md:size-40"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
