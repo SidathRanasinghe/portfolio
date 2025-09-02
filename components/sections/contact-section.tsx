@@ -11,6 +11,7 @@ import {
   Send,
 } from "lucide-react";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,37 +62,117 @@ const socialLinks = [
   },
 ];
 
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface EmailJsConfigs {
+  serviceId: string;
+  templateId: string;
+  publicKey: string;
+}
+
 export function ContactSection() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Format current date and time as "12.35pm, 11.06.2025"
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const ampm = hours >= 12 ? "pm" : "am";
+      const displayHours = hours % 12 || 12;
 
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      const day = now.getDate().toString().padStart(2, "0");
+      const month = (now.getMonth() + 1).toString().padStart(2, "0");
+      const year = now.getFullYear();
 
-    // In a real implementation, you would send the data to your backend
-    console.log("Form submitted:", formData);
+      const formattedTime = `${displayHours}.${minutes}${ampm}, ${day}.${month}.${year}`;
+
+      const emailjsConfigs: EmailJsConfigs = {
+        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
+      };
+
+      if (
+        emailjsConfigs.serviceId &&
+        emailjsConfigs.templateId &&
+        emailjsConfigs.publicKey
+      ) {
+        // Send email with form data and additional time parameter
+        await emailjs.send(
+          emailjsConfigs.serviceId,
+          emailjsConfigs.templateId,
+          {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            time: formattedTime,
+          },
+          emailjsConfigs.publicKey
+        );
+
+        // Reset form and show success message
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setStatus({
+          type: "success",
+          message:
+            "Thank you! Your message has been sent successfully. I'll get back to you soon!",
+        });
+      } else {
+        console.error(
+          "EmailJS configuration is incomplete. Please check your environment variables."
+        );
+        setStatus({
+          type: "error",
+          message:
+            "Oops! Something went wrong. Please try again or contact me directly via email.",
+        });
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus({
+        type: "error",
+        message:
+          "Oops! Something went wrong. Please try again or contact me directly via email.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    // Clear status when user starts typing
+    if (status.type) {
+      setStatus({ type: null, message: "" });
+    }
   };
 
   return (
@@ -224,6 +305,19 @@ export function ContactSection() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Status Message */}
+                  {status.type && (
+                    <div
+                      className={`rounded-lg p-4 text-sm ${
+                        status.type === "success"
+                          ? "border border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-200"
+                          : "border border-red-200 bg-red-50 text-red-800 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200"
+                      }`}
+                    >
+                      {status.message}
+                    </div>
+                  )}
+
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="font-body">
@@ -236,6 +330,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         placeholder="Your full name"
                         required
+                        disabled={isSubmitting}
                         className="font-body"
                       />
                     </div>
@@ -251,6 +346,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         placeholder="your.email@example.com"
                         required
+                        disabled={isSubmitting}
                         className="font-body"
                       />
                     </div>
@@ -267,6 +363,7 @@ export function ContactSection() {
                       onChange={handleChange}
                       placeholder="What's this about?"
                       required
+                      disabled={isSubmitting}
                       className="font-body"
                     />
                   </div>
@@ -283,6 +380,7 @@ export function ContactSection() {
                       placeholder="Tell me about your project or how I can help..."
                       rows={6}
                       required
+                      disabled={isSubmitting}
                       className="resize-none font-body"
                     />
                   </div>
