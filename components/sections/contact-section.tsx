@@ -1,0 +1,316 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  ExternalLink,
+  Send,
+} from "lucide-react";
+import React, { useState } from "react";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { personalInfo } from "@/lib/portfolio-data";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: personalInfo.email,
+    href: `mailto:${personalInfo.email}`,
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: personalInfo.phone,
+    href: `tel:${personalInfo.phone.replace(/\s/g, "")}`,
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: personalInfo.location,
+    href: null,
+  },
+];
+
+const socialLinks = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: personalInfo.linkedin,
+    username: "sidath-ranasinghe",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: personalInfo.github,
+    username: "SidathRanasinghe",
+  },
+  {
+    icon: ExternalLink,
+    label: "GitLab",
+    href: personalInfo.gitlab,
+    username: "SidathRanasinghe",
+  },
+];
+
+export function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Reset form
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(false);
+
+    // In a real implementation, you would send the data to your backend
+    console.log("Form submitted:", formData);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  return (
+    <section id="contact" className="bg-muted/30 py-20 lg:py-32">
+      <div className="container-width section-padding">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className="mb-6 text-balance font-sans text-3xl font-bold md:text-4xl lg:text-5xl">
+            {"Let's"} <span className="gradient-text">Connect</span>
+          </h2>
+          <p className="mx-auto max-w-3xl text-pretty text-lg text-muted-foreground">
+            {
+              "Ready to discuss your next project or explore collaboration opportunities? I'd love to hear from you."
+            }
+          </p>
+        </motion.div>
+
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <h3 className="mb-6 font-sans text-2xl font-bold">
+                Get in Touch
+              </h3>
+              <p className="mb-8 font-body leading-relaxed text-muted-foreground">
+                {
+                  "Whether you're looking for a senior developer to join your team, need consultation on a technical project, or want to discuss potential collaborations, I'm always open to meaningful conversations."
+                }
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="space-y-4">
+              {contactInfo.map((contact, index) => (
+                <motion.div
+                  key={contact.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="border-border/50 transition-shadow duration-300 hover:shadow-md">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-4">
+                        <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                          <contact.icon className="size-5 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-body text-sm font-medium text-muted-foreground">
+                            {contact.label}
+                          </p>
+                          {contact.href ? (
+                            <a
+                              href={contact.href}
+                              className="font-body text-foreground transition-colors hover:text-primary"
+                            >
+                              {contact.value}
+                            </a>
+                          ) : (
+                            <p className="font-body text-foreground">
+                              {contact.value}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="space-y-4">
+              <h4 className="font-sans font-semibold">Connect on Social</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    <Card className="border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-md">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-3">
+                          <social.icon className="size-5 text-primary transition-transform group-hover:scale-110" />
+                          <div>
+                            <p className="font-body text-sm font-medium">
+                              {social.label}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              {social.username}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Card className="border-border/50">
+              <CardHeader>
+                <CardTitle className="font-sans">Send a Message</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="font-body">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your full name"
+                        required
+                        className="font-body"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="font-body">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your.email@example.com"
+                        required
+                        className="font-body"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="font-body">
+                      Subject
+                    </Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="What's this about?"
+                      required
+                      className="font-body"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="font-body">
+                      Message
+                    </Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project or how I can help..."
+                      rows={6}
+                      required
+                      className="resize-none font-body"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="group w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="mr-2 size-4 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 size-4 transition-transform group-hover:translate-x-1" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
