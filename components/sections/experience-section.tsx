@@ -68,7 +68,7 @@ export function ExperienceSection() {
                         <p className="font-body text-lg font-medium text-primary">
                           {experience.company}
                         </p>
-                        <div className="flex items-center gap-4 font-body text-sm text-muted-foreground">
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-body text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Calendar className="size-4" />
                             {experience.period}
