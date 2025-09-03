@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
+import Image from "next/image";
 
 import { ThemeToggle } from "@/components/common/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -54,9 +55,15 @@ export function Navigation() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="gradient-text font-sans text-xl font-bold"
+            className="gradient-text h-16 w-auto p-3 font-sans text-xl font-bold"
           >
-            Sidath Ranasinghe
+            <Image
+              src={personalInfo.logo}
+              alt="Logo"
+              width={40}
+              height={40}
+              className="size-full object-cover"
+            />
           </motion.div>
 
           {/* Desktop Navigation */}

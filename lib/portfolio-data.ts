@@ -13,6 +13,7 @@ export const personalInfo = {
   bio: "Proven ability to lead projects, implement best practices, and mentor teams to deliver high-performance solutions aligned with business goals.",
   profileImage: "/images/profile/sidath-profile.png",
   resumeUrl: "/docs/Sidath_Ranasinghe_SE.pdf",
+  logo: "/images/logo/sidath.io.logo1.png",
 };
 
 export const aboutTechs = [

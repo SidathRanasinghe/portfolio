@@ -258,7 +258,7 @@ export function ContactSection() {
             {/* Social Links */}
             <div className="space-y-4">
               <h4 className="font-sans font-semibold">Connect on Social</h4>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -269,7 +269,7 @@ export function ContactSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group"
+                    className="group min-w-fit max-w-full"
                   >
                     <Card className="border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-md">
                       <CardContent className="p-4">
