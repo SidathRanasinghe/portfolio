@@ -56,7 +56,9 @@ export function ExperienceSection() {
                           <h3 className="font-sans text-xl font-bold text-foreground">
                             {experience.title}
                           </h3>
-                          {experience.period.includes("May 2025") && (
+                          {experience.period
+                            .toLowerCase()
+                            .includes("present") && (
                             <Badge className="border-primary/20 bg-primary/10 text-primary">
                               <TrendingUp className="mr-1 size-3" />
                               Current

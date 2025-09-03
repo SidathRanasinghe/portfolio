@@ -365,7 +365,7 @@ export const testimonials = [
     company: "Simato Solutions (Pvt.) Ltd.",
     image: "/images/testimonials/chethana_subasinghe.jpg",
     content:
-      "I had the privilege of working with Sidath during his internship at Simato Solutions, where he contributed as a Full Stack Developer. During this time, Sidath played an active role in key projects such as Appmaker and Stars Live, where he demonstrated strong technical knowledge in both front-end and back-end development. His ability to quickly learn, adapt, and deliver quality work within deadlines added great value to the team.\n\nBeyond technical expertise, Sidath consistently displayed professionalism, problem-solving skills, and effective collaboration with colleagues. I am confident that he will be a valuable asset to any organization and I highly recommend him for future opportunities.",
+      "I had the privilege of working with Sidath during his internship at Simato Solutions, where he contributed as a Full Stack Developer. During this time, Sidath played an active role in key projects such as Appmaker and Stars Live, where he demonstrated strong technical knowledge in both front-end and back-end development. His ability to quickly learn, adapt, and deliver quality work within deadlines added great value to the team. Beyond technical expertise, Sidath consistently displayed professionalism, problem-solving skills, and effective collaboration with colleagues.",
     rating: 5,
   },
   {
