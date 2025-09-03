@@ -5,7 +5,7 @@ import { Calendar, MapPin, TrendingUp } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { workExperience } from "@/lib/portfolio-data";
+import { overallExperience, workExperience } from "@/lib/portfolio-data";
 
 export function ExperienceSection() {
   return (
@@ -131,12 +131,7 @@ export function ExperienceSection() {
                             }}
                             viewport={{ once: true }}
                           >
-                            <Badge
-                              variant="secondary"
-                              className="font-body text-xs"
-                            >
-                              {tech}
-                            </Badge>
+                            <Badge className="font-body text-xs">{tech}</Badge>
                           </motion.div>
                         ))}
                       </div>
@@ -157,12 +152,7 @@ export function ExperienceSection() {
           className="mt-16"
         >
           <div className="mx-auto grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4">
-            {[
-              { label: "Years Experience", value: "4+" },
-              { label: "Companies", value: "2" },
-              { label: "Major Projects", value: "7+" },
-              { label: "Users Impacted", value: "5K+" },
-            ].map((stat, index) => (
+            {overallExperience.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}

@@ -6,6 +6,7 @@ import { Menu, X, Download } from "lucide-react";
 
 import { ThemeToggle } from "@/components/common/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { personalInfo } from "@/lib/portfolio-data";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -31,8 +32,8 @@ export function Navigation() {
 
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Sidath_Ranasinghe_Resume.pdf";
-    link.download = "Sidath_Ranasinghe_Resume.pdf";
+    link.href = personalInfo.resumeUrl;
+    link.download = "Sidath_Ranasinghe_SE.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

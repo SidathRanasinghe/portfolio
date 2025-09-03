@@ -20,7 +20,7 @@ export function HeroSection() {
   const downloadResume = () => {
     const link = document.createElement("a");
     link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_Resume.pdf";
+    link.download = "Sidath_Ranasinghe_SE.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -85,7 +85,7 @@ export function HeroSection() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/images/sidath-profile.png"
+                  src={personalInfo.profileImage}
                   alt={personalInfo.name}
                   width={160}
                   height={160}

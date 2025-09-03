@@ -39,7 +39,7 @@ export const siteMetadata: Metadata = {
     siteName: "Sidath Ranasinghe Portfolio",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/profile/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sidath Ranasinghe - Senior Software Engineer",
@@ -51,7 +51,7 @@ export const siteMetadata: Metadata = {
     title: "Sidath Ranasinghe - Senior Software Engineer",
     description:
       "Full-stack Software Engineer with 4+ years of experience in React, Angular, Node.js, and TypeScript.",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/images/social/twitter-image.jpg"],
     creator: "@sidath_ranasinghe",
   },
   robots: {

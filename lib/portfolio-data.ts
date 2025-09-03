@@ -11,9 +11,24 @@ export const personalInfo = {
   tagline:
     "Full-stack Software Engineer with 4+ years of experience in building scalable web applications using Angular, React, and Node.js.",
   bio: "Proven ability to lead projects, implement best practices, and mentor teams to deliver high-performance solutions aligned with business goals.",
-  profileImage: "/sidath-profile.jpg", // Add your professional photo here
-  resumeUrl: "/sidath-ranasinghe-resume.pdf",
+  profileImage: "/images/profile/sidath-profile.png",
+  resumeUrl: "/docs/Sidath_Ranasinghe_SE.pdf",
 };
+
+export const aboutTechs = [
+  "React",
+  "Angular",
+  "Node.js",
+  "TypeScript",
+  "JavaScript",
+  "Next.js",
+  "Express.js",
+  "MongoDB",
+  "PostgreSQL",
+  "Docker",
+  "Redux",
+  "Tailwind CSS",
+];
 
 export const workExperience = [
   {
@@ -32,10 +47,12 @@ export const workExperience = [
     ],
     technologies: [
       "React",
+      "Next.js",
       "D3.js",
       "ReCharts",
+      "ECharts",
+      "TailwindCSS",
       "Redux",
-      "Context API",
       "TypeScript",
     ],
   },
@@ -54,7 +71,19 @@ export const workExperience = [
       "Integrated solutions with open-source data platforms, including N8N and DataHub, enhancing data analytics capabilities for enterprise clients",
       "Actively participated in agile ceremonies and translated UI/UX designs into responsive implementations that received client commendation",
     ],
-    technologies: ["JavaScript", "jQuery", "N8N", "DataHub", "HTML5", "CSS3"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Context API",
+      "TailwindCSS",
+      "VIS Network",
+      "JavaScript",
+      "jQuery",
+      "N8N",
+      "DataHub",
+      "HTML5",
+      "CSS3",
+    ],
   },
   {
     id: 3,
@@ -99,6 +128,22 @@ export const workExperience = [
   },
 ];
 
+export const overallExperience = [
+  { label: "Years Experience", value: "4+" },
+  { label: "Companies", value: "2" },
+  { label: "Major Projects", value: "7+" },
+  { label: "Users Impacted", value: "5K+" },
+];
+
+export const projectCategories = [
+  "All",
+  "Web Application",
+  "AI Platform",
+  "Library",
+  "Platform",
+  "Social Platform",
+];
+
 export const projects = [
   {
     id: 1,
@@ -122,8 +167,8 @@ export const projects = [
       "Docker",
       "Railway CI/CD",
     ],
-    image: "/vehicle-marketplace-platform-dashboard.png",
-    liveUrl: "https://autotrust.lk",
+    image: "/images/projects/vehicle-marketplace-platform-dashboard.png",
+    liveUrl: "https://autotrust-frontend-staging.vercel.app/",
     githubUrl: "#",
     featured: true,
     status: "Ongoing",
@@ -152,7 +197,8 @@ export const projects = [
       "OpenAI API",
       "Hugging Face",
     ],
-    image: "/ai-assistant-chat-interface-government-services.png",
+    image:
+      "/images/projects/ai-assistant-chat-interface-government-services.png",
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
@@ -180,7 +226,8 @@ export const projects = [
       "Open Weather API",
       "JWT",
     ],
-    image: "/event-ticketing-platform-seat-selection-interface.png",
+    image:
+      "/images/projects/event-ticketing-platform-seat-selection-interface.png",
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
@@ -202,59 +249,19 @@ export const projects = [
       "Monorepo Architecture",
       "Zod Validation",
     ],
-    image: "/react-component-library-storybook-interface.png",
+    image: "/images/projects/react-component-library-storybook-interface.png",
     liveUrl: "#",
     githubUrl: "https://github.com/SidathRanasinghe/reusable-ui-monorepo",
     featured: false,
     status: "Completed",
   },
-  {
-    id: 5,
-    title: "IDEAMART Appmaker",
-    category: "Platform",
-    description:
-      "A web-based platform that enables businesses and individuals to create mobile applications without requiring coding knowledge.",
-    longDescription:
-      "Created a modular component architecture that facilitates the development and customization of scalable application templates. The platform empowers users to build mobile apps through an intuitive drag-and-drop interface.",
-    technologies: [
-      "AngularJS",
-      "Angular(2+)",
-      "Angular Material",
-      "Node.js",
-      "Sails.js",
-      "Cordova",
-      "MongoDB",
-    ],
-    image: "/no-code-mobile-app-builder-interface.png",
-    liveUrl: "https://appmaker.lk",
-    githubUrl: "#",
-    featured: false,
-    status: "Completed",
-  },
-  {
-    id: 6,
-    title: "STARS-LIVE",
-    category: "Social Platform",
-    description:
-      "Social interaction platform connecting celebrities with fans through live streaming and exclusive content.",
-    longDescription:
-      "Contributed to developing a real-time chat system supporting 10K+ concurrent users. Implemented media streaming optimization that reduced buffering by 60%. Built features for live streaming, fan interactions, and content monetization.",
-    technologies: [
-      "Angular",
-      "Node.js",
-      "Sails.js",
-      "Ionic",
-      "Cordova",
-      "WebSockets",
-      "MongoDB",
-      "Redis",
-    ],
-    image: "/live-streaming-social-platform-celebrity-fans.png",
-    liveUrl: "https://starslive.lk",
-    githubUrl: "#",
-    featured: false,
-    status: "Completed",
-  },
+];
+
+export const overallProjectsCounts = [
+  { label: "Total Projects", value: "6+" },
+  { label: "Technologies", value: "25+" },
+  { label: "Live Projects", value: "3" },
+  { label: "Open Source", value: "1" },
 ];
 
 export const skills = {
@@ -287,6 +294,17 @@ export const skills = {
     { name: "Jira", level: 80, years: 3 },
   ],
 };
+
+export const devTools = [
+  "VS Code",
+  "WebStorm",
+  "IntelliJ IDEA",
+  "Android Studio",
+  "Postman",
+  "Jira",
+  "GitHub",
+  "GitLab",
+];
 
 export const education = {
   degree: "B.Sc. (Hons.) in Information Technology",
@@ -324,8 +342,8 @@ export const testimonials = [
     id: 1,
     name: "Prasad Kumara",
     title: "Development Manager",
-    company: "FocalId Technologies",
-    image: "/testimonial-prasad.jpg",
+    company: "FocalId Technologies (Pvt.) Ltd.",
+    image: "/images/testimonials/prasad_kumara.jpg",
     content:
       "Sidath consistently delivered exceptional results as a Senior Software Engineer. His ability to architect reusable components and establish code quality standards significantly improved our development velocity. His mentorship of junior developers and technical leadership made him an invaluable team member.",
     rating: 5,
@@ -333,29 +351,29 @@ export const testimonials = [
   {
     id: 2,
     name: "Chamil Thusantha",
-    title: "Associate Software Architect",
-    company: "Simato Solutions",
-    image: "/testimonial-chamil.jpg",
+    title: "Software Architect",
+    company: "Simato Solutions (Pvt.) Ltd.",
+    image: "/images/testimonials/chamil_thushantha.jpg",
     content:
       "Working with Sidath over multiple years, I witnessed his growth from intern to a skilled full-stack engineer. His contributions to the Appmaker platform and StarsLive were outstanding. He has excellent problem-solving skills and always delivers high-quality, scalable solutions.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Sarah Johnson",
-    title: "Product Manager",
-    company: "Tech Innovations Ltd",
-    image: "/testimonial-sarah.jpg",
+    name: "Chethana Subasinghe",
+    title: "Senior Project Manager | Corporate Trainer | Visiting Lecturer",
+    company: "Simato Solutions (Pvt.) Ltd.",
+    image: "/images/testimonials/chethana_subasinghe.jpg",
     content:
-      "Sidath's technical expertise in React and Angular helped us deliver our project ahead of schedule. His attention to detail and ability to translate complex requirements into elegant solutions is remarkable. He's a developer you can always count on.",
+      "I had the privilege of working with Sidath during his internship at Simato Solutions, where he contributed as a Full Stack Developer. During this time, Sidath played an active role in key projects such as Appmaker and Stars Live, where he demonstrated strong technical knowledge in both front-end and back-end development. His ability to quickly learn, adapt, and deliver quality work within deadlines added great value to the team.\n\nBeyond technical expertise, Sidath consistently displayed professionalism, problem-solving skills, and effective collaboration with colleagues. I am confident that he will be a valuable asset to any organization and I highly recommend him for future opportunities.",
     rating: 5,
   },
   {
     id: 4,
-    name: "Michael Chen",
+    name: "Ishara Weerasinghe",
     title: "Senior Frontend Developer",
-    company: "Digital Solutions Inc",
-    image: "/testimonial-michael.jpg",
+    company: "FocalId Technologies (Pvt.) Ltd.",
+    image: "/images/testimonials/ishara_weerasinghe.jpg",
     content:
       "I had the pleasure of collaborating with Sidath on several projects. His deep understanding of modern JavaScript frameworks and best practices is impressive. He writes clean, maintainable code and is always willing to share knowledge with the team.",
     rating: 5,

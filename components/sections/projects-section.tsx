@@ -8,16 +8,11 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/lib/portfolio-data";
-
-const categories = [
-  "All",
-  "Web Application",
-  "AI Platform",
-  "Library",
-  "Platform",
-  "Social Platform",
-];
+import {
+  overallProjectsCounts,
+  projectCategories,
+  projects,
+} from "@/lib/portfolio-data";
 
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -57,7 +52,7 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="mb-12 flex flex-wrap justify-center gap-2"
         >
-          {categories.map(category => (
+          {projectCategories.map(category => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
@@ -140,13 +135,16 @@ export function ProjectsSection() {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="font-body text-xs"
+                            className="font-body text-xs group-hover:border-transparent group-hover:bg-primary group-hover:text-primary-foreground group-hover:transition-all group-hover:duration-300 group-hover:hover:bg-primary/80"
                           >
                             {tech}
                           </Badge>
                         ))}
                         {project.technologies.length > 6 && (
-                          <Badge variant="secondary" className="text-xs">
+                          <Badge
+                            variant="secondary"
+                            className="text-xs group-hover:border-primary group-hover:bg-transparent group-hover:text-primary group-hover:transition-all group-hover:duration-300 group-hover:hover:bg-transparent"
+                          >
                             +{project.technologies.length - 6} more
                           </Badge>
                         )}
@@ -247,14 +245,17 @@ export function ProjectsSection() {
                         {project.technologies.slice(0, 3).map(tech => (
                           <Badge
                             key={tech}
-                            variant="outline"
-                            className="text-xs"
+                            variant="secondary"
+                            className="text-xs group-hover:border-transparent group-hover:bg-primary group-hover:text-primary-foreground group-hover:transition-all group-hover:duration-300 group-hover:hover:bg-primary/80"
                           >
                             {tech}
                           </Badge>
                         ))}
                         {project.technologies.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
+                          <Badge
+                            variant="secondary"
+                            className="text-xs group-hover:border-primary group-hover:bg-transparent group-hover:text-primary group-hover:transition-all group-hover:duration-300 group-hover:hover:bg-transparent"
+                          >
                             +{project.technologies.length - 3}
                           </Badge>
                         )}
@@ -313,12 +314,7 @@ export function ProjectsSection() {
           className="mt-16 text-center"
         >
           <div className="mx-auto grid max-w-2xl grid-cols-2 gap-6 md:grid-cols-4">
-            {[
-              { label: "Total Projects", value: "6+" },
-              { label: "Technologies", value: "25+" },
-              { label: "Live Projects", value: "3" },
-              { label: "Open Source", value: "1" },
-            ].map((stat, index) => (
+            {overallProjectsCounts.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -326,12 +322,14 @@ export function ProjectsSection() {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="gradient-text mb-1 font-sans text-2xl font-bold">
-                  {stat.value}
-                </div>
-                <div className="font-body text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
+                <Card className="border-border/50 p-6">
+                  <div className="gradient-text mb-1 font-sans text-2xl font-bold">
+                    {stat.value}
+                  </div>
+                  <div className="font-body text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
+                </Card>
               </motion.div>
             ))}
           </div>

@@ -5,7 +5,7 @@ import { Code2, Users, Zap, Award } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { personalInfo, education } from "@/lib/portfolio-data";
+import { personalInfo, education, aboutTechs } from "@/lib/portfolio-data";
 
 const highlights = [
   {
@@ -32,21 +32,6 @@ const highlights = [
     description:
       "Contributed to platforms serving 5K+ concurrent users and 100+ businesses",
   },
-];
-
-const technologies = [
-  "React",
-  "Angular",
-  "Node.js",
-  "TypeScript",
-  "JavaScript",
-  "Next.js",
-  "Express.js",
-  "MongoDB",
-  "PostgreSQL",
-  "Docker",
-  "Redux",
-  "Tailwind CSS",
 ];
 
 export function AboutSection() {
@@ -96,7 +81,7 @@ export function AboutSection() {
                 Core Technologies
               </h4>
               <div className="flex flex-wrap gap-2">
-                {technologies.map((tech, index) => (
+                {aboutTechs.map((tech, index) => (
                   <motion.div
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -104,9 +89,7 @@ export function AboutSection() {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <Badge variant="secondary" className="font-body text-sm">
-                      {tech}
-                    </Badge>
+                    <Badge className="font-body text-sm">{tech}</Badge>
                   </motion.div>
                 ))}
               </div>

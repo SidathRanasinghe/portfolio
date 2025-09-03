@@ -22,7 +22,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { skills } from "@/lib/portfolio-data";
+import { devTools, skills } from "@/lib/portfolio-data";
 
 const skillCategories = [
   {
@@ -267,16 +267,7 @@ export function SkillsSection() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
-                {[
-                  "VS Code",
-                  "WebStorm",
-                  "IntelliJ IDEA",
-                  "Android Studio",
-                  "Postman",
-                  "Jira",
-                  "GitHub",
-                  "GitLab",
-                ].map((tool, index) => (
+                {devTools.map((tool, index) => (
                   <motion.div
                     key={tool}
                     initial={{ opacity: 0, scale: 0.8 }}
