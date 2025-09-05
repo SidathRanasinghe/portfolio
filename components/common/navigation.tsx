@@ -7,17 +7,8 @@ import Image from "next/image";
 
 import { ThemeToggle } from "@/components/common/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { personalInfo } from "@/lib/portfolio-data";
-
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
-];
+import { navItems, personalInfo } from "@/lib/portfolio-data";
+import { cn } from "@/lib/utils";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,11 +35,13 @@ export function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "border-b border-border bg-background/80 backdrop-blur-md"
-          : "bg-transparent"
-      }`}
+          : "bg-transparent",
+        { "rounded-b-lg border-b border-border backdrop-blur-md": isOpen }
+      )}
     >
       <div className="container-width section-padding">
         <div className="flex h-16 items-center justify-between">
@@ -108,7 +101,11 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-border bg-background/95 backdrop-blur-md md:hidden"
+            className={cn(
+              "mb-3 rounded-lg border-t border-border",
+              scrolled ? "bg-background/95" : "",
+              "backdrop-blur-md md:hidden"
+            )}
           >
             <div className="space-y-2 py-4">
               {navItems.map(item => (
@@ -126,7 +123,10 @@ export function Navigation() {
                   variant="outline"
                   size="sm"
                   onClick={downloadResume}
-                  className="w-full bg-transparent"
+                  className={cn(
+                    "w-full",
+                    scrolled ? "bg-transparent" : "bg-background/95"
+                  )}
                 >
                   <Download className="mr-2 size-4" />
                   Download Resume

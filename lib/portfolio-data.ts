@@ -1,3 +1,13 @@
+export const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#contact" },
+];
+
 export const personalInfo = {
   name: "Sidath Ranasinghe",
   title: "Senior Software Engineer",

@@ -8,6 +8,7 @@ import React, { Suspense } from "react";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import { siteMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -24,14 +25,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
       </head>
       <body
-        className={`font-body ${GeistSans.variable} ${GeistMono.variable} ${manrope.variable} antialiased`}
+        className={cn(
+          "font-body",
+          GeistSans.variable,
+          GeistMono.variable,
+          manrope.variable,
+          "relative overflow-x-hidden antialiased"
+        )}
         suppressHydrationWarning
       >
         <Suspense fallback={null}>
@@ -41,7 +52,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange={false}
           >
-            {children}
+            <div className="w-full overflow-x-hidden">{children}</div>
           </ThemeProvider>
         </Suspense>
         <Analytics />

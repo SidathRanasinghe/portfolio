@@ -13,11 +13,11 @@ import { CursorFollower } from "@/components/common/cursor-follower";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full overflow-x-hidden">
       <LoadingScreen />
       <ScrollProgress />
       <CursorFollower />
-      <main className="min-h-screen">
+      <main className="min-h-screen w-full overflow-x-hidden">
         <Navigation />
         <HeroSection />
         <AboutSection />
@@ -28,6 +28,6 @@ export default function Home() {
         <ContactSection />
         <Footer />
       </main>
-    </>
+    </div>
   );
 }

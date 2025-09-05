@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { personalInfo } from "@/lib/portfolio-data";
+import { cn } from "@/lib/utils";
 
 const contactInfo = [
   {
@@ -308,11 +309,12 @@ export function ContactSection() {
                   {/* Status Message */}
                   {status.type && (
                     <div
-                      className={`rounded-lg p-4 text-sm ${
+                      className={cn(
+                        "rounded-lg p-4 text-sm",
                         status.type === "success"
                           ? "border border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-200"
                           : "border border-red-200 bg-red-50 text-red-800 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200"
-                      }`}
+                      )}
                     >
                       {status.message}
                     </div>
