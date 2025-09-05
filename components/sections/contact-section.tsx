@@ -231,19 +231,19 @@ export function ContactSection() {
                         <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                           <contact.icon className="size-5 text-primary" />
                         </div>
-                        <div className="flex-1">
+                        <div className="min-w-0 flex-1">
                           <p className="font-body text-sm font-medium text-muted-foreground">
                             {contact.label}
                           </p>
                           {contact.href ? (
                             <a
                               href={contact.href}
-                              className="font-body text-foreground transition-colors hover:text-primary"
+                              className="break-all font-body text-foreground transition-colors hover:text-primary"
                             >
                               {contact.value}
                             </a>
                           ) : (
-                            <p className="font-body text-foreground">
+                            <p className="break-all font-body text-foreground">
                               {contact.value}
                             </p>
                           )}
@@ -258,7 +258,7 @@ export function ContactSection() {
             {/* Social Links */}
             <div className="space-y-4">
               <h4 className="font-sans font-semibold">Connect on Social</h4>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -269,17 +269,17 @@ export function ContactSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group min-w-fit max-w-full"
+                    className="group flex-1"
                   >
-                    <Card className="border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-md">
+                    <Card className="h-full border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-md">
                       <CardContent className="p-4">
                         <div className="flex items-center gap-3">
                           <social.icon className="size-5 text-primary transition-transform group-hover:scale-110" />
                           <div>
-                            <p className="font-body text-sm font-medium">
+                            <p className="break-all font-body text-sm font-medium">
                               {social.label}
                             </p>
-                            <p className="text-xs text-muted-foreground">
+                            <p className="break-all text-xs text-muted-foreground">
                               {social.username}
                             </p>
                           </div>
