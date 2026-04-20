@@ -17,33 +17,89 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/sidath-ranasinghe",
   github: "https://github.com/SidathRanasinghe",
   gitlab: "https://gitlab.com/SidathRanasinghe",
-  portfolio: "https://sidathranasinghe.github.io/portfolio",
+  portfolio: "https://sidath.ryzeniclabs.com",
   tagline:
-    "Full-stack Software Engineer with 4+ years of experience in building scalable web applications using Angular, React, and Node.js.",
-  bio: "Proven ability to lead projects, implement best practices, and mentor teams to deliver high-performance solutions aligned with business goals.",
+    "Full-stack Software Engineer with 5+ years of experience building production-grade web systems end-to-end — from microservices architecture (NestJS, Next.js, Prisma) through CI/CD and live server operations.",
+  bio: "Recent work includes a 14-repository microservices real-estate platform and a multi-tenant AWS-hosted e-commerce system. Proven ability to lead projects, implement best practices, and mentor teams. Open to international relocation and on-site engagements.",
   profileImage: "/images/profile/sidath-profile.png",
-  resumeUrl: "/docs/Sidath_Ranasinghe_SE.pdf",
+  resumeUrl: "/docs/Sidath_Ranasinghe_CV.pdf",
   logo: "/images/logo/sidath.io.logo1.png",
 };
 
 export const aboutTechs = [
   "React",
-  "Angular",
-  "Node.js",
-  "TypeScript",
-  "JavaScript",
   "Next.js",
+  "Angular",
+  "TypeScript",
+  "Node.js",
+  "NestJS",
   "Express.js",
   "MongoDB",
-  "PostgreSQL",
+  "MySQL",
+  "Prisma",
   "Docker",
-  "Redux",
-  "Tailwind CSS",
+  "AWS",
 ];
 
 export const workExperience = [
   {
     id: 1,
+    title: "Co-Founder & Technical Lead",
+    company: "Ryzenic Labs",
+    location: "Remote / Sri Lanka",
+    period: "2025 – Present",
+    type: "Startup",
+    description:
+      "Co-founded Ryzenic Labs with two partners — a software-services studio delivering custom web applications, cloud infrastructure, and performance-tuned systems for regional clients.",
+    achievements: [
+      "Set technical direction across custom web application development, database design, and cloud deployment practices",
+      "Led engineering on client engagements spanning e-commerce, marketing, and multi-portal platforms",
+      "Shared product leadership and roadmap decisions with founding partners, balancing delivery with long-term platform quality",
+    ],
+    technologies: [
+      "Next.js",
+      "NestJS",
+      "Node.js",
+      "TypeScript",
+      "AWS",
+      "MongoDB",
+      "MySQL",
+      "Docker",
+    ],
+  },
+  {
+    id: 2,
+    title: "Senior Software Engineer (Freelance)",
+    company: "Independent — Sri Lanka",
+    location: "Sri Lanka",
+    period: "June 2025 – Present",
+    type: "Freelance",
+    description:
+      "Designed and delivered production-grade full-stack systems for clients across real-estate, e-commerce, and construction domains; retained under maintenance agreements.",
+    achievements: [
+      "PurpleRoof: Architected a 14-repo microservices real-estate platform (NestJS + Next.js + Prisma/MySQL) with a PKCE-based SSO gateway, pure RBAC with audit logging, and GitHub Actions CI/CD to a CentOS production server — live since March 2026",
+      "SA Gems: Built a dual-brand gemstone e-commerce platform (Ceylon + Toronto) on Express.js + MongoDB, deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager",
+      "SA Construction: Delivered a premium marketing site on Next.js 16 + Tailwind v4 with scroll-triggered animations and SEO-optimized metadata",
+      "Maintain all three production systems under ongoing maintenance agreements covering bug fixes, feature additions, and infrastructure tuning",
+    ],
+    technologies: [
+      "NestJS",
+      "Next.js",
+      "Express.js",
+      "TypeScript",
+      "Prisma",
+      "MySQL",
+      "MongoDB",
+      "AWS",
+      "Docker",
+      "GitHub Actions",
+      "Passport.js",
+      "RTK Query",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    id: 3,
     title: "Senior Software Engineer",
     company: "FocalId Technologies (Pvt.) Ltd.",
     location: "Mirigama, Sri Lanka",
@@ -68,7 +124,7 @@ export const workExperience = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     title: "Software Engineer",
     company: "FocalId Technologies (Pvt.) Ltd.",
     location: "Mirigama, Sri Lanka",
@@ -97,7 +153,7 @@ export const workExperience = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Software Engineer",
     company: "Simato Solutions (Pvt.) Ltd.",
     location: "Sri Jayawardenepura Kotte, Sri Lanka",
@@ -115,6 +171,7 @@ export const workExperience = [
     technologies: [
       "Angular",
       "Node.js",
+      "Sails.js",
       "MongoDB",
       "Socket.IO",
       "Payment Gateways",
@@ -122,7 +179,7 @@ export const workExperience = [
     ],
   },
   {
-    id: 4,
+    id: 6,
     title: "Software Engineer Intern",
     company: "Simato Solutions (Pvt.) Ltd.",
     location: "Sri Jayawardenepura Kotte, Sri Lanka",
@@ -140,24 +197,192 @@ export const workExperience = [
 ];
 
 export const overallExperience = [
-  { label: "Years Experience", value: "4+" },
-  { label: "Companies", value: "2" },
-  { label: "Major Projects", value: "7+" },
+  { label: "Years Experience", value: "5+" },
+  { label: "Clients & Companies", value: "5+" },
+  { label: "Major Projects", value: "10+" },
   { label: "Users Impacted", value: "5K+" },
 ];
 
 export const projectCategories = [
   "All",
-  "Web Application",
-  "AI Platform",
-  "Library",
   "Platform",
-  "Social Platform",
+  "E-Commerce",
+  "Web Application",
+  "Marketing Site",
+  "Library",
 ];
 
-export const projects = [
+export interface ProjectGalleryGroup {
+  label: string;
+  images: string[];
+}
+
+export interface Project {
+  id: number;
+  slug: string;
+  title: string;
+  category: string;
+  description: string;
+  longDescription: string;
+  technologies: string[];
+  image: string;
+  gallery?: ProjectGalleryGroup[];
+  liveUrl: string;
+  githubUrl: string;
+  featured: boolean;
+  status: string;
+}
+
+export const projects: Project[] = [
   {
     id: 1,
+    slug: "purpleroof",
+    title: "PurpleRoof",
+    category: "Platform",
+    description:
+      "A 14-repo microservices real-estate platform with LMS, Careers, and Mortgage modules — architected solo and running in production.",
+    longDescription:
+      "Architected and full-stack developed a real-estate platform spanning 14 independent microservice repositories: 5 NestJS services behind a PKCE-based SSO gateway, 5 Next.js portals (Home, User, Company, Admin, Career), and 3 internal npm packages published to GitHub Packages. Implemented a pure RBAC system with audit logging, JWT auth, Prisma/MySQL migrations, and GitHub Actions CI/CD on a CentOS production server (PM2-managed). Live in production since March 2026.",
+    technologies: [
+      "NestJS",
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "MySQL",
+      "Redis",
+      "JWT",
+      "PKCE SSO",
+      "PM2",
+      "Nginx",
+      "GitHub Actions",
+      "Docker",
+      "CentOS",
+      "Tailwind CSS",
+      "shadcn / Radix UI",
+    ],
+    image: "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-1.png",
+    gallery: [
+      {
+        label: "Home App",
+        images: [
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-1.png",
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-2.png",
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-3.png",
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-4.png",
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-5.png",
+          "/images/projects/PurpleRoof/HomeApp/Purple-Roof-Home-6.png",
+        ],
+      },
+      {
+        label: "User Portal (including LMS)",
+        images: [
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-1.png",
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-2.png",
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-3.png",
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-4.png",
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-5.png",
+          "/images/projects/PurpleRoof/UserApp/Purple-Roof-User-6.png",
+        ],
+      },
+      {
+        label: "Career Portal",
+        images: [
+          "/images/projects/PurpleRoof/CareerApp/Purple-Roof-Career-1.png",
+        ],
+      },
+    ],
+    liveUrl: "https://purpleroof.com/",
+    githubUrl: "#",
+    featured: true,
+    status: "Live",
+  },
+  {
+    id: 2,
+    slug: "sa-gems",
+    title: "SA Gems",
+    category: "E-Commerce",
+    description:
+      "A dual-brand gemstone e-commerce platform (Ceylon SA Gems + Toronto SA Gems) with customer requests, gem reservations, and interest queues.",
+    longDescription:
+      "Built a dual-brand gemstone e-commerce platform serving Ceylon SA Gems (SAG) and Toronto SA Gems (TSAG) from a single codebase on Express.js + MongoDB with Next.js and RTK Query frontends. Designed the Customer Request workflow (custom / specific / similar categories), 48-hour Gem Reservation system, and Interest Queue with cron-driven expiry and automated notifications. Deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager.",
+    technologies: [
+      "Next.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "TypeScript",
+      "Redux Toolkit",
+      "RTK Query",
+      "Passport.js",
+      "Google OAuth",
+      "AWS EC2",
+      "AWS S3",
+      "CloudFront",
+      "SES",
+      "Docker",
+      "Tailwind CSS",
+    ],
+    image: "/images/projects/SAGems/sag-1.png",
+    gallery: [
+      {
+        label: "Screenshots",
+        images: [
+          "/images/projects/SAGems/sag-1.png",
+          "/images/projects/SAGems/sag-2.png",
+          "/images/projects/SAGems/sag-3.png",
+          "/images/projects/SAGems/sag-4.png",
+          "/images/projects/SAGems/sag-5.png",
+          "/images/projects/SAGems/sag-6.png",
+          "/images/projects/SAGems/sag-7.png",
+        ],
+      },
+    ],
+    liveUrl: "https://ceylonsagems.com/",
+    githubUrl: "#",
+    featured: true,
+    status: "Live",
+  },
+  {
+    id: 3,
+    slug: "sa-constructions",
+    title: "SA Constructions",
+    category: "Marketing Site",
+    description:
+      "A premium marketing single-page application for SA Construction, built for lead generation in residential and commercial construction markets.",
+    longDescription:
+      "Delivered an elegant marketing SPA on Next.js 16 with Turbopack and Tailwind CSS v4 (CSS-first @theme config), featuring 11 animated sections, scroll-triggered reveals, an auto-rotating hero carousel, filterable portfolio grid, and SEO-optimized metadata. Strict ESLint 9 flat config and TypeScript 5.7 throughout.",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Turbopack",
+      "Framer Motion",
+      "Lucide Icons",
+      "ESLint 9",
+    ],
+    image: "/images/projects/SAConstructions/sac-1.png",
+    gallery: [
+      {
+        label: "Screenshots",
+        images: [
+          "/images/projects/SAConstructions/sac-1.png",
+          "/images/projects/SAConstructions/sac-2.png",
+          "/images/projects/SAConstructions/sac-3.png",
+          "/images/projects/SAConstructions/sac-4.png",
+          "/images/projects/SAConstructions/sac-5.png",
+          "/images/projects/SAConstructions/sac-6.png",
+        ],
+      },
+    ],
+    liveUrl: "https://sa-construction-user-frontend.vercel.app/",
+    githubUrl: "#",
+    featured: false,
+    status: "Live",
+  },
+  {
+    id: 4,
+    slug: "autotrust-lk",
     title: "AutoTrust.lk",
     category: "Web Application",
     description:
@@ -178,45 +403,26 @@ export const projects = [
       "Docker",
       "Railway CI/CD",
     ],
-    image: "/images/projects/vehicle-marketplace-platform-dashboard.png",
+    image: "/images/projects/AutoTrustLk/atl-1.png",
+    gallery: [
+      {
+        label: "Screenshots",
+        images: [
+          "/images/projects/AutoTrustLk/atl-1.png",
+          "/images/projects/AutoTrustLk/atl-2.png",
+          "/images/projects/AutoTrustLk/atl-3.png",
+          "/images/projects/AutoTrustLk/atl-4.png",
+        ],
+      },
+    ],
     liveUrl: "https://autotrust-frontend-staging.vercel.app/",
     githubUrl: "#",
-    featured: true,
+    featured: false,
     status: "Ongoing",
   },
   {
-    id: 2,
-    title: "MateSL",
-    category: "AI Platform",
-    description:
-      "An AI-powered assistant platform designed to provide step-by-step guidance on government services, business processes, and daily procedures for Sri Lankan citizens.",
-    longDescription:
-      "Built with a microservices-based architecture in a MonoRepo structure, featuring multi-language support (Sinhala, Tamil, English), AI-driven chat, and version-controlled procedure management. Integrated OpenAI/Hugging Face models for intelligent responses, Redis/Elasticsearch for caching and search, and Kubernetes for scalable deployments.",
-    technologies: [
-      "Next.js",
-      "React Native",
-      "Node.js",
-      "Express.js",
-      "PostgreSQL",
-      "Redis",
-      "Elasticsearch",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "JWT",
-      "Google OAuth",
-      "OpenAI API",
-      "Hugging Face",
-    ],
-    image:
-      "/images/projects/ai-assistant-chat-interface-government-services.png",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    status: "Ongoing",
-  },
-  {
-    id: 3,
+    id: 5,
+    slug: "playarena",
     title: "PlayArena",
     category: "Web Application",
     description:
@@ -237,19 +443,29 @@ export const projects = [
       "Open Weather API",
       "JWT",
     ],
-    image:
-      "/images/projects/event-ticketing-platform-seat-selection-interface.png",
-    liveUrl: "#",
+    image: "/images/projects/PlayArena/pa-1.png",
+    gallery: [
+      {
+        label: "Screenshots",
+        images: [
+          "/images/projects/PlayArena/pa-1.png",
+          "/images/projects/PlayArena/pa-2.png",
+          "/images/projects/PlayArena/pa-3.png",
+        ],
+      },
+    ],
+    liveUrl: "https://playarena-staging.vercel.app/",
     githubUrl: "#",
-    featured: true,
+    featured: false,
     status: "Ongoing",
   },
   {
-    id: 4,
+    id: 6,
+    slug: "reusable-ui-library",
     title: "Reusable UI Components Library",
     category: "Library",
     description:
-      "Comprehensive monorepo containing 20+ production-ready React components with TypeScript and modern design patterns.",
+      "A monorepo with 20+ production-ready React components, enterprise-grade form system, and interactive data visualization pieces — documented via Storybook.",
     longDescription:
       "Built an enterprise-grade form system with dynamic validation, interactive data visualization components, and advanced UI elements. Implemented Storybook documentation, custom design system, and workspace architecture for scalable component development.",
     technologies: [
@@ -260,8 +476,19 @@ export const projects = [
       "Monorepo Architecture",
       "Zod Validation",
     ],
-    image: "/images/projects/react-component-library-storybook-interface.png",
-    liveUrl: "#",
+    image: "/images/projects/UI/rui-1.png",
+    gallery: [
+      {
+        label: "Screenshots",
+        images: [
+          "/images/projects/UI/rui-1.png",
+          "/images/projects/UI/rui-2.png",
+          "/images/projects/UI/rui-3.png",
+          "/images/projects/UI/rui-4.png",
+        ],
+      },
+    ],
+    liveUrl: "https://sidathranasinghe.github.io/reusable-ui-monorepo/",
     githubUrl: "https://github.com/SidathRanasinghe/reusable-ui-monorepo",
     featured: false,
     status: "Completed",
@@ -269,40 +496,50 @@ export const projects = [
 ];
 
 export const overallProjectsCounts = [
-  { label: "Total Projects", value: "6+" },
-  { label: "Technologies", value: "25+" },
-  { label: "Live Projects", value: "3" },
+  { label: "Total Projects", value: "10+" },
+  { label: "Technologies", value: "30+" },
+  { label: "Live Projects", value: "5+" },
   { label: "Open Source", value: "1" },
 ];
 
 export const skills = {
   frontend: [
-    { name: "React", level: 95, years: 3 },
-    { name: "Angular", level: 90, years: 4 },
-    { name: "Next.js", level: 85, years: 2 },
-    { name: "TypeScript", level: 90, years: 3 },
-    { name: "JavaScript", level: 95, years: 4 },
-    { name: "Tailwind CSS", level: 85, years: 2 },
-    { name: "HTML5/CSS3", level: 95, years: 4 },
+    { name: "React", level: 95, years: 5 },
+    { name: "Next.js", level: 90, years: 3 },
+    { name: "Angular", level: 90, years: 5 },
+    { name: "TypeScript", level: 92, years: 4 },
+    { name: "JavaScript", level: 95, years: 5 },
+    { name: "Tailwind CSS", level: 90, years: 3 },
+    { name: "shadcn / Radix UI", level: 85, years: 2 },
+    { name: "Framer Motion", level: 75, years: 2 },
   ],
   backend: [
-    { name: "Node.js", level: 90, years: 4 },
-    { name: "Express.js", level: 85, years: 3 },
-    { name: "RESTful APIs", level: 90, years: 4 },
-    { name: "Socket.IO", level: 80, years: 2 },
-    { name: "Prisma", level: 75, years: 1 },
+    { name: "Node.js", level: 92, years: 5 },
+    { name: "NestJS", level: 85, years: 1 },
+    { name: "Express.js", level: 90, years: 4 },
+    { name: "Sails.js", level: 75, years: 3 },
+    { name: "REST APIs", level: 95, years: 5 },
+    { name: "Socket.IO", level: 85, years: 3 },
+    { name: "Passport.js", level: 80, years: 1 },
+    { name: "Swagger / OpenAPI", level: 80, years: 1 },
   ],
   database: [
-    { name: "MongoDB", level: 85, years: 4 },
+    { name: "MongoDB", level: 90, years: 5 },
+    { name: "MySQL", level: 85, years: 2 },
     { name: "PostgreSQL", level: 80, years: 2 },
-    { name: "MySQL", level: 75, years: 2 },
+    { name: "Prisma", level: 85, years: 2 },
+    { name: "Mongoose", level: 85, years: 5 },
+    { name: "Redis", level: 75, years: 2 },
   ],
   tools: [
-    { name: "Git", level: 90, years: 4 },
-    { name: "Docker", level: 75, years: 2 },
-    { name: "VS Code", level: 95, years: 4 },
-    { name: "Postman", level: 85, years: 3 },
-    { name: "Jira", level: 80, years: 3 },
+    { name: "Git", level: 95, years: 5 },
+    { name: "Docker", level: 85, years: 2 },
+    { name: "AWS (EC2, S3, CloudFront, SES)", level: 80, years: 1 },
+    { name: "GitHub Actions", level: 85, years: 1 },
+    { name: "PM2", level: 80, years: 1 },
+    { name: "Nginx", level: 75, years: 2 },
+    { name: "Postman", level: 90, years: 5 },
+    { name: "Jira", level: 85, years: 4 },
   ],
 };
 
@@ -310,7 +547,6 @@ export const devTools = [
   "VS Code",
   "WebStorm",
   "IntelliJ IDEA",
-  "Android Studio",
   "Postman",
   "Jira",
   "GitHub",

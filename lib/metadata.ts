@@ -3,16 +3,17 @@ import { Metadata } from "next";
 export const siteMetadata: Metadata = {
   title: "Sidath Ranasinghe - Senior Software Engineer",
   description:
-    "Full-stack Software Engineer with 4+ years of experience in React, Angular, Node.js, and TypeScript. Building scalable web applications and leading development teams.",
+    "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, Node.js, and MySQL/MongoDB. Open to international relocation.",
   keywords: [
     "Software Engineer",
     "Full-stack Developer",
     "React",
-    "Angular",
-    "Node.js",
     "Next.js",
+    "NestJS",
+    "Node.js",
     "TypeScript",
-    "JavaScript",
+    "Microservices",
+    "AWS",
     "Sri Lanka",
   ],
   authors: [{ name: "Sidath Ranasinghe" }],
@@ -32,10 +33,10 @@ export const siteMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sidath-portfolio.vercel.app",
+    url: "https://sidath.ryzeniclabs.com",
     title: "Sidath Ranasinghe - Senior Software Engineer",
     description:
-      "Full-stack Software Engineer with 4+ years of experience in React, Angular, Node.js, and TypeScript.",
+      "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
     siteName: "Sidath Ranasinghe Portfolio",
     images: [
       {
@@ -50,7 +51,7 @@ export const siteMetadata: Metadata = {
     card: "summary_large_image",
     title: "Sidath Ranasinghe - Senior Software Engineer",
     description:
-      "Full-stack Software Engineer with 4+ years of experience in React, Angular, Node.js, and TypeScript.",
+      "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
     images: ["/images/social/twitter-image.jpg"],
     creator: "@sidath_ranasinghe",
   },
@@ -69,5 +70,5 @@ export const siteMetadata: Metadata = {
     google: "", // google-verification-code
     yandex: "", // yandex-verification-code
   },
-  category: "automotive",
+  category: "technology",
 };

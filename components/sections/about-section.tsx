@@ -10,27 +10,27 @@ import { personalInfo, education, aboutTechs } from "@/lib/portfolio-data";
 const highlights = [
   {
     icon: Code2,
-    title: "Technical Leadership",
+    title: "Microservices Architecture",
     description:
-      "Led front-end development initiatives across multiple high-value client projects at FocalId Technologies",
+      "Solo-architected PurpleRoof, a 14-repo production real-estate platform spanning NestJS services, Next.js portals, and published internal npm packages",
   },
   {
     icon: Users,
     title: "Team Mentorship",
     description:
-      "Mentored junior developers and established code quality standards, improving sprint velocity",
+      "Led front-end initiatives at FocalId, mentored junior developers, and established code quality standards that improved sprint velocity",
   },
   {
     icon: Zap,
-    title: "Performance Optimization",
+    title: "Production Operations",
     description:
-      "Implemented performance-optimized components, reducing load times on key client applications",
+      "Runs live systems end-to-end: CI/CD on GitHub Actions, PM2-managed CentOS servers, and AWS (EC2, S3, CloudFront, SES, Secrets Manager)",
   },
   {
     icon: Award,
     title: "Proven Impact",
     description:
-      "Contributed to platforms serving 5K+ concurrent users and 100+ businesses",
+      "Built platforms serving 5K+ concurrent users and 100+ businesses; retained by multiple clients under ongoing maintenance agreements",
   },
 ];
 

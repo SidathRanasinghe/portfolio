@@ -20,7 +20,7 @@ export function HeroSection() {
   const downloadResume = () => {
     const link = document.createElement("a");
     link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_SE.pdf";
+    link.download = "Sidath_Ranasinghe_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -131,9 +131,9 @@ export function HeroSection() {
                   2000,
                   "Full-stack Developer",
                   2000,
-                  "React & Angular Expert",
+                  "NestJS & Microservices Architect",
                   2000,
-                  "Node.js Specialist",
+                  "React & Next.js Engineer",
                   2000,
                 ]}
                 wrapper="span"

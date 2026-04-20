@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Globe, Star, Users, Zap } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,7 @@ import {
 } from "@/lib/portfolio-data";
 
 export function ProjectsSection() {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
@@ -24,6 +26,14 @@ export function ProjectsSection() {
   );
 
   const featuredProjects = projects.filter(project => project.featured);
+
+  const goToProject = (slug: string) => {
+    router.push(`/projects/${slug}`);
+  };
+
+  const stopNavPropagation = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
 
   return (
     <section id="projects" className="bg-muted/30 py-20 lg:py-32">
@@ -88,7 +98,8 @@ export function ProjectsSection() {
                 viewport={{ once: true }}
                 onMouseEnter={() => setHoveredProject(project.title)}
                 onMouseLeave={() => setHoveredProject(null)}
-                className="group"
+                onClick={() => goToProject(project.slug)}
+                className="group cursor-pointer"
               >
                 <Card className="h-full overflow-hidden border-border/50 transition-all duration-500 hover:shadow-2xl">
                   <div className="relative overflow-hidden">
@@ -158,9 +169,10 @@ export function ProjectsSection() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={stopNavPropagation}
                             >
                               <Globe className="mr-2 size-4 transition-transform group-hover/btn:scale-110" />
-                              Live Demo
+                              Visit Site
                             </a>
                           </Button>
                         )}
@@ -175,6 +187,7 @@ export function ProjectsSection() {
                               href={project.githubUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={stopNavPropagation}
                             >
                               <Github className="mr-2 size-4 transition-transform group-hover/btn:scale-110" />
                               Code
@@ -211,7 +224,8 @@ export function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                onClick={() => goToProject(project.slug)}
+                className="group cursor-pointer"
               >
                 <Card className="h-full overflow-hidden border-border/50 transition-all duration-300 hover:shadow-lg">
                   <div className="relative overflow-hidden">
@@ -273,9 +287,10 @@ export function ProjectsSection() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={stopNavPropagation}
                             >
                               <ExternalLink className="mr-1 size-3" />
-                              View
+                              Visit Site
                             </a>
                           </Button>
                         )}
@@ -290,6 +305,7 @@ export function ProjectsSection() {
                               href={project.githubUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={stopNavPropagation}
                             >
                               <Github className="mr-1 size-3" />
                               Code

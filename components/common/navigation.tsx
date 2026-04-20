@@ -25,7 +25,7 @@ export function Navigation() {
   const downloadResume = () => {
     const link = document.createElement("a");
     link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_SE.pdf";
+    link.download = "Sidath_Ranasinghe_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
