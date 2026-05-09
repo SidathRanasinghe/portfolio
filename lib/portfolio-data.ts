@@ -375,7 +375,7 @@ export const projects: Project[] = [
         ],
       },
     ],
-    liveUrl: "https://sa-construction-user-frontend.vercel.app/",
+    liveUrl: "https://saconstructionsinc.com/",
     githubUrl: "#",
     featured: false,
     status: "Live",
