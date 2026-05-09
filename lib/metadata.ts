@@ -40,7 +40,7 @@ export const siteMetadata: Metadata = {
     siteName: "Sidath Ranasinghe Portfolio",
     images: [
       {
-        url: "/images/profile/og-image.jpg",
+        url: "/images/profile/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sidath Ranasinghe - Senior Software Engineer",
