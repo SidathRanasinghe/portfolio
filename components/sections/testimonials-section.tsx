@@ -10,9 +10,9 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="bg-gradient-to-br from-background to-muted/20 py-20"
+      className="bg-gradient-to-br from-background to-muted/20 pt-20"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export function TestimonialsSection() {
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
             {
-              "Testimonials from colleagues, managers, and clients I've had the pleasure to work with"
+              "Testimonials from colleagues and managers I've had the pleasure to work with"
             }
           </p>
         </motion.div>
@@ -106,11 +106,11 @@ export function TestimonialsSection() {
 
         {/* Call to action */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, paddingBottom: 64 }}
+          whileInView={{ opacity: 1, y: 0, paddingBottom: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          className="pt-16 text-center"
         >
           <p className="mb-6 text-lg text-muted-foreground">
             Ready to work together and create something amazing?

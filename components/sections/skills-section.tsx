@@ -9,88 +9,24 @@ import {
   Radar,
   ResponsiveContainer,
 } from "recharts";
-import {
-  Code2,
-  Database,
-  Server,
-  Settings,
-  Palette,
-  Globe,
-} from "lucide-react";
+import { Award, Code2, Compass, Globe, Layers, Settings } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { devTools, skills } from "@/lib/portfolio-data";
+import {
+  devTools,
+  languages,
+  skillDomains,
+  skillTiers,
+} from "@/lib/portfolio-data";
 
-const skillCategories = [
-  {
-    id: "frontend",
-    title: "Frontend Development",
-    icon: Palette,
-    color: "hsl(var(--chart-1))",
-    skills: skills.frontend,
-  },
-  {
-    id: "backend",
-    title: "Backend Development",
-    icon: Server,
-    color: "hsl(var(--chart-2))",
-    skills: skills.backend,
-  },
-  {
-    id: "database",
-    title: "Database Technologies",
-    icon: Database,
-    color: "hsl(var(--chart-3))",
-    skills: skills.database,
-  },
-  {
-    id: "tools",
-    title: "DevOps & Tools",
-    icon: Settings,
-    color: "hsl(var(--chart-4))",
-    skills: skills.tools,
-  },
-];
-
-const radarData = [
-  {
-    subject: "Frontend",
-    A: Math.round(
-      skills.frontend.reduce((acc, skill) => acc + skill.level, 0) /
-        skills.frontend.length
-    ),
-    fullMark: 100,
-  },
-  {
-    subject: "Backend",
-    A: Math.round(
-      skills.backend.reduce((acc, skill) => acc + skill.level, 0) /
-        skills.backend.length
-    ),
-    fullMark: 100,
-  },
-  {
-    subject: "Database",
-    A: Math.round(
-      skills.database.reduce((acc, skill) => acc + skill.level, 0) /
-        skills.database.length
-    ),
-    fullMark: 100,
-  },
-  {
-    subject: "DevOps",
-    A: Math.round(
-      skills.tools.reduce((acc, skill) => acc + skill.level, 0) /
-        skills.tools.length
-    ),
-    fullMark: 100,
-  },
-  { subject: "Mobile", A: 70, fullMark: 100 },
-  { subject: "Cloud", A: 65, fullMark: 100 },
-];
+const tierStyles = {
+  core: { icon: Award, color: "hsl(var(--chart-1))" },
+  working: { icon: Layers, color: "hsl(var(--chart-2))" },
+  familiar: { icon: Compass, color: "hsl(var(--chart-3))" },
+};
 
 export function SkillsSection() {
   return (
@@ -112,14 +48,14 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <div className="mb-16 grid gap-8 lg:grid-cols-3">
+        <div className="mb-16 grid gap-8 lg:grid-cols-7">
           {/* Skills Overview Radar Chart */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-1"
+            className="lg:col-span-3"
           >
             <Card className="h-full border-border/50">
               <CardHeader>
@@ -131,10 +67,10 @@ export function SkillsSection() {
               <CardContent>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <RadarChart data={radarData}>
+                    <RadarChart data={skillDomains}>
                       <PolarGrid />
                       <PolarAngleAxis
-                        dataKey="subject"
+                        dataKey="name"
                         className="font-body text-xs"
                       />
                       <PolarRadiusAxis
@@ -144,7 +80,7 @@ export function SkillsSection() {
                       />
                       <Radar
                         name="Proficiency"
-                        dataKey="A"
+                        dataKey="value"
                         stroke="hsl(var(--primary))"
                         fill="hsl(var(--primary))"
                         fillOpacity={0.1}
@@ -163,68 +99,62 @@ export function SkillsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="lg:col-span-2"
+            className="lg:col-span-4"
           >
-            <Tabs defaultValue="frontend" className="w-full">
-              <TabsList className="mb-6 grid w-full grid-cols-4">
-                {skillCategories.map(category => (
-                  <TabsTrigger
-                    key={category.id}
-                    value={category.id}
-                    className="text-xs"
-                  >
-                    <category.icon className="mr-1 size-4" />
-                    <span className="hidden sm:inline">
-                      {category.title.split(" ")[0]}
-                    </span>
-                  </TabsTrigger>
-                ))}
+            <Tabs defaultValue="core" className="w-full">
+              <TabsList className="mb-6 grid w-full grid-cols-3">
+                {skillTiers.map(tier => {
+                  const TierIcon = tierStyles[tier.id].icon;
+                  return (
+                    <TabsTrigger
+                      key={tier.id}
+                      value={tier.id}
+                      className="text-xs"
+                    >
+                      <TierIcon className="mr-1 size-4" />
+                      <span className="hidden sm:inline">{tier.label}</span>
+                    </TabsTrigger>
+                  );
+                })}
               </TabsList>
 
-              {skillCategories.map(category => (
-                <TabsContent key={category.id} value={category.id}>
-                  <Card className="border-border/50">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 font-sans">
-                        <category.icon
-                          className="size-5"
-                          style={{ color: category.color }}
-                        />
-                        {category.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        {category.skills.map((skill, index) => (
-                          <motion.div
-                            key={skill.name}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="space-y-2"
-                          >
-                            <div className="flex items-center justify-between">
+              {skillTiers.map(tier => {
+                const { icon: TierIcon, color } = tierStyles[tier.id];
+                return (
+                  <TabsContent key={tier.id} value={tier.id}>
+                    <Card className="border-border/50">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2 font-sans">
+                          <TierIcon className="size-5" style={{ color }} />
+                          {tier.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-4">
+                          {tier.skills.map((skill, index) => (
+                            <motion.div
+                              key={skill.name}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{
+                                duration: 0.5,
+                                delay: index * 0.05,
+                              }}
+                              viewport={{ once: true }}
+                              className="space-y-2"
+                            >
                               <span className="font-body font-medium">
                                 {skill.name}
                               </span>
-                              <div className="flex items-center gap-2">
-                                <Badge variant="outline" className="text-xs">
-                                  {skill.years}y
-                                </Badge>
-                                <span className="font-mono text-sm text-muted-foreground">
-                                  {skill.level}%
-                                </span>
-                              </div>
-                            </div>
-                            <Progress value={skill.level} className="h-2" />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              ))}
+                              <Progress value={skill.level} className="h-2" />
+                            </motion.div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                );
+              })}
             </Tabs>
           </motion.div>
         </div>
@@ -246,14 +176,15 @@ export function SkillsSection() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-body">English</span>
-                  <Badge>Full Professional Proficiency</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-body">Sinhala</span>
-                  <Badge>Native</Badge>
-                </div>
+                {languages.map(language => (
+                  <div
+                    key={language.name}
+                    className="flex items-center justify-between"
+                  >
+                    <span className="font-body">{language.name}</span>
+                    <Badge>{language.proficiency}</Badge>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>

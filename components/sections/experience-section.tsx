@@ -93,31 +93,33 @@ export function ExperienceSection() {
                     </p>
 
                     {/* Key Achievements */}
-                    <div className="mb-6 space-y-4">
-                      <h4 className="font-sans font-semibold text-foreground">
-                        Key Achievements
-                      </h4>
-                      <ul className="space-y-2">
-                        {experience.achievements.map(
-                          (achievement, achievementIndex) => (
-                            <motion.li
-                              key={achievementIndex}
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{
-                                duration: 0.3,
-                                delay: achievementIndex * 0.1,
-                              }}
-                              viewport={{ once: true }}
-                              className="flex items-start gap-3 font-body text-sm leading-relaxed text-muted-foreground"
-                            >
-                              <div className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
-                              {achievement}
-                            </motion.li>
-                          )
-                        )}
-                      </ul>
-                    </div>
+                    {experience.achievements.length > 0 && (
+                      <div className="mb-6 space-y-4">
+                        <h4 className="font-sans font-semibold text-foreground">
+                          Key Achievements
+                        </h4>
+                        <ul className="space-y-2">
+                          {experience.achievements.map(
+                            (achievement, achievementIndex) => (
+                              <motion.li
+                                key={achievementIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  duration: 0.3,
+                                  delay: achievementIndex * 0.1,
+                                }}
+                                viewport={{ once: true }}
+                                className="flex items-start gap-3 font-body text-sm leading-relaxed text-muted-foreground"
+                              >
+                                <div className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                                {achievement}
+                              </motion.li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
 
                     {/* Technologies */}
                     <div className="space-y-3">

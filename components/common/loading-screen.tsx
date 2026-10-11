@@ -3,6 +3,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import { personalInitials } from "@/lib/portfolio-data";
+
 // Keep the splash brief, and never hold the page hostage on slow networks
 const MIN_DURATION_MS = 800;
 const MAX_DURATION_MS = 3000;
@@ -60,7 +62,9 @@ export function LoadingScreen() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="gradient-text font-sans text-4xl font-bold">SR</h1>
+              <h1 className="gradient-text font-sans text-4xl font-bold">
+                {personalInitials}
+              </h1>
             </motion.div>
 
             <motion.div

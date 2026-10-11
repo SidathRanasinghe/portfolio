@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink, Github, Zap } from "lucide-react";
 
-import { projects } from "@/lib/portfolio-data";
+import { personalInfo, projects } from "@/lib/portfolio-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -21,10 +21,10 @@ export async function generateMetadata({
   const project = projects.find(p => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: `${project.title} — Sidath Ranasinghe`,
+    title: `${project.title} — ${personalInfo.name}`,
     description: project.description,
     openGraph: {
-      title: `${project.title} — Sidath Ranasinghe`,
+      title: `${project.title} — ${personalInfo.name}`,
       description: project.description,
       images: [project.image],
     },
@@ -59,7 +59,7 @@ export default async function ProjectDetailPage({
               href="/"
               className="gradient-text font-sans text-sm font-semibold"
             >
-              Sidath Ranasinghe
+              {personalInfo.name}
             </Link>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default async function ProjectDetailPage({
               <span className="gradient-text">{project.title}</span>
             </h1>
 
-            <p className="max-w-3xl text-pretty font-body text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="w-full text-pretty font-body text-base leading-relaxed text-muted-foreground md:text-lg">
               {project.longDescription}
             </p>
 

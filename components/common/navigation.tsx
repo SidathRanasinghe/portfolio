@@ -41,9 +41,11 @@ export function Navigation() {
               <Image
                 src={personalInfo.logo}
                 alt="Logo"
-                width={40}
-                height={40}
-                className="size-full object-cover"
+                width={638}
+                height={512}
+                priority
+                quality={100}
+                className="size-full object-contain"
               />
             </div>
 

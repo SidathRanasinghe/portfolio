@@ -42,24 +42,28 @@ const contactInfo = [
   },
 ];
 
+// The last path segment of a profile URL, e.g. ".../in/sidath-ranasinghe" -> "sidath-ranasinghe"
+const profileHandle = (url: string) =>
+  new URL(url).pathname.split("/").filter(Boolean).pop() ?? url;
+
 const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
     href: personalInfo.linkedin,
-    username: "sidath-ranasinghe",
+    username: profileHandle(personalInfo.linkedin),
   },
   {
     icon: Github,
     label: "GitHub",
     href: personalInfo.github,
-    username: "SidathRanasinghe",
+    username: profileHandle(personalInfo.github),
   },
   {
     icon: ExternalLink,
     label: "GitLab",
     href: personalInfo.gitlab,
-    username: "SidathRanasinghe",
+    username: profileHandle(personalInfo.gitlab),
   },
 ];
 
@@ -210,9 +214,7 @@ export function ContactSection() {
                 Get in Touch
               </h3>
               <p className="mb-8 font-body leading-relaxed text-muted-foreground">
-                {
-                  "Whether you're looking for a senior developer to join your team, need consultation on a technical project, or want to discuss potential collaborations, I'm always open to meaningful conversations."
-                }
+                {personalInfo.contactPitch}
               </p>
             </div>
 

@@ -10,7 +10,9 @@ export const navItems = [
 
 export const personalInfo = {
   name: "Sidath Ranasinghe",
-  title: "Senior Software Engineer",
+  title: "Full-Stack Engineer",
+  headline:
+    "Full-Stack Engineer · Node.js & Next.js · Real-Time Systems & API Integrations",
   location: "Kegalle, Sri Lanka",
   email: "sidath.ranasinghe.work@gmail.com",
   phone: "(+94) 76 557 2291",
@@ -19,68 +21,86 @@ export const personalInfo = {
   gitlab: "https://gitlab.com/SidathRanasinghe",
   portfolio: "https://sidath.ryzeniclabs.com",
   tagline:
-    "Full-stack Software Engineer with 5+ years of experience building production-grade web systems end-to-end — from microservices architecture (NestJS, Next.js, Prisma) through CI/CD and live server operations.",
-  bio: "Recent work includes a 14-repository microservices real-estate platform and a multi-tenant AWS-hosted e-commerce system. Proven ability to lead projects, implement best practices, and mentor teams. Open to international relocation and on-site engagements.",
+    "Full-stack engineer with 4+ years of production experience, specialising in Node.js backends, real-time WebSocket systems, and third-party API integrations, with frontend delivery in Next.js and Angular.",
+  bio: "Built a real-time chat application end-to-end, migrated a failing live-streaming layer onto AWS IVS, and reworked a telecom payment gateway integration across a breaking major API version. Currently lead developer and architect on a production real estate platform operating in the UAE and Sri Lanka. Comfortable owning architecture, delivery, and production operations. Open to international relocation and on-site engagements.",
+  contactPitch:
+    "Whether you're looking for a full-stack engineer to join your team, need help with a Node.js backend, real-time system, or API integration, or want to discuss a potential collaboration, I'm always open to meaningful conversations.",
   profileImage: "/images/profile/sidath-profile.png",
   resumeUrl: "/docs/Sidath_Ranasinghe_SE.pdf",
   logo: "/images/logo/logo.png",
 };
 
-export const aboutTechs = [
-  "React",
-  "Next.js",
-  "Angular",
-  "TypeScript",
-  "Node.js",
-  "NestJS",
-  "Express.js",
-  "MongoDB",
-  "MySQL",
-  "Prisma",
-  "Docker",
-  "AWS",
+export const personalInitials = personalInfo.name
+  .split(" ")
+  .map(part => part[0])
+  .join("");
+
+export const heroRoles = [
+  personalInfo.title,
+  "Node.js & Next.js Developer",
+  "Real-Time Systems Engineer",
+  "API Integration Specialist",
 ];
+
+export const aboutTechs = [
+  "Node.js",
+  "Express.js",
+  "Sails.js",
+  "Angular",
+  "Next.js",
+  "React",
+  "NestJS",
+  "TypeScript",
+  "Socket.IO",
+  "MongoDB",
+  "Prisma",
+  "MySQL",
+  "Git",
+  "PM2",
+];
+
+export const aboutHighlights = [
+  {
+    icon: "architecture",
+    title: "Platform Architecture",
+    description:
+      "Lead developer and architect on PurpleRoof: restructured a stalled Laravel monolith into five NestJS services, five Next.js portals, and three internal npm packages",
+  },
+  {
+    icon: "realtime",
+    title: "Real-Time Systems",
+    description:
+      "Built a Socket.IO chat application end-to-end and a live fan-to-celebrity session queue, and moved StarsLive streaming onto AWS IVS with adaptive bitrate",
+  },
+  {
+    icon: "integrations",
+    title: "API Integrations",
+    description:
+      "Migrated the Genie payment gateway (Dialog, Mobitel) across a breaking major API version, and integrated Google Analytics, Maps, Sheets, and OAuth 2.0",
+  },
+  {
+    icon: "operations",
+    title: "Production Operations",
+    description:
+      "Runs live systems end-to-end: CI/CD on GitHub Actions, PM2-managed CentOS servers, and AWS (EC2, S3, CloudFront, SES, Secrets Manager); mentored junior developers along the way",
+  },
+] as const;
 
 export const workExperience = [
   {
     id: 1,
-    title: "Co-Founder & Technical Lead",
-    company: "Ryzenic Labs",
-    location: "Remote / Sri Lanka",
-    period: "2025 – Present",
-    type: "Startup",
-    description:
-      "Co-founded Ryzenic Labs with two partners — a software-services studio delivering custom web applications, cloud infrastructure, and performance-tuned systems for regional clients.",
-    achievements: [
-      "Set technical direction across custom web application development, database design, and cloud deployment practices",
-      "Led engineering on client engagements spanning e-commerce, marketing, and multi-portal platforms",
-      "Shared product leadership and roadmap decisions with founding partners, balancing delivery with long-term platform quality",
-    ],
-    technologies: [
-      "Next.js",
-      "NestJS",
-      "Node.js",
-      "TypeScript",
-      "AWS",
-      "MongoDB",
-      "MySQL",
-      "Docker",
-    ],
-  },
-  {
-    id: 2,
-    title: "Senior Software Engineer (Freelance)",
-    company: "Independent — Sri Lanka",
+    title: "Lead Developer / Full-Stack Engineer (Independent)",
+    company: "Independent Engagements",
     location: "Sri Lanka",
     period: "June 2025 – Present",
     type: "Freelance",
     description:
-      "Designed and delivered production-grade full-stack systems for clients across real-estate, e-commerce, and construction domains; retained under maintenance agreements.",
+      "Deliver and maintain production systems for clients in real estate, e-commerce, and construction under ongoing maintenance agreements.",
     achievements: [
-      "PurpleRoof: Architected a 14-repo microservices real-estate platform (NestJS + Next.js + Prisma/MySQL) with a PKCE-based SSO gateway, pure RBAC with audit logging, and GitHub Actions CI/CD to a CentOS production server — live since March 2026",
-      "SA Gems: Built a dual-brand gemstone e-commerce platform (Ceylon + Toronto) on Express.js + MongoDB, deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager",
-      "SA Construction: Delivered a premium marketing site on Next.js 16 + Tailwind v4 with scroll-triggered animations and SEO-optimized metadata",
-      "Maintain all three production systems under ongoing maintenance agreements covering bug fixes, feature additions, and infrastructure tuning",
+      "PurpleRoof (purpleroof.com): Lead developer and architect. Restructured a stalled Laravel monolith into a service-oriented Node.js platform: five NestJS services behind a PKCE-based SSO gateway, five Next.js portals, and three internal npm packages published to GitHub Packages. Implemented role-based access control with audit logging, JWT authentication, Prisma/MySQL migrations, and GitHub Actions CI/CD on a PM2-managed CentOS server. Work within a five-person team on two-week sprints. Live in production since March 2026",
+      "SA Gems (ceylonsagems.com, torontosagems.com): Dual-brand gemstone e-commerce platform on Express.js and MongoDB with Next.js/RTK Query frontends. Designed the customer request workflow, a 48-hour gem reservation system, and a cron-driven interest queue with automatic expiry. Deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager",
+      "SA Construction (saconstructionsinc.com): Marketing single-page application built with Next.js 16 and Tailwind v4 (CSS-first @theme), React 19, scroll-triggered animations, and SEO-optimised metadata",
+      "Ryzenic Labs (ryzeniclabs.com): Co-founded a software services practice with two partners, focused on full-stack product engagements for regional clients",
     ],
     technologies: [
       "NestJS",
@@ -93,24 +113,27 @@ export const workExperience = [
       "AWS",
       "Docker",
       "GitHub Actions",
+      "PM2",
       "Passport.js",
       "RTK Query",
       "Tailwind CSS",
+      "Git",
+      "Jira",
     ],
   },
   {
-    id: 3,
+    id: 2,
     title: "Senior Software Engineer",
     company: "FocalId Technologies (Pvt.) Ltd.",
     location: "Mirigama, Sri Lanka",
     period: "November 2024 – May 2025",
     type: "Full-time",
     description:
-      "Led front-end development initiatives across multiple high-value client projects, establishing architectural standards and mentoring junior team members.",
+      "Front-end development across client dashboards, with a focus on data visualization, state management, and team code quality.",
     achievements: [
-      "Architected and implemented reusable data visualization components using D3.js, ReCharts, and the React ecosystem, reducing development time for new dashboards",
-      "Established code quality standards across a few projects, reducing reported bugs and improving sprint velocity",
-      "Implemented robust state management patterns using Redux and Context API, creating a predictable and maintainable application architecture",
+      "Built a reusable force-directed network graph component in D3 for visual link analysis, after benchmarking vis-network and finding it degraded badly at high node counts. Delivered it after resolving a Next.js version incompatibility; adopted across multiple client dashboards",
+      "Established front-end state-management patterns (Redux, Context API) and code-quality standards for the team",
+      "Mentored junior developers, participated in agile ceremonies, and translated UI/UX designs into responsive implementations",
     ],
     technologies: [
       "React",
@@ -120,23 +143,26 @@ export const workExperience = [
       "ECharts",
       "TailwindCSS",
       "Redux",
+      "Context API",
       "TypeScript",
+      "Socket.IO",
+      "WebSockets",
+      "Git",
+      "Jira",
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Software Engineer",
     company: "FocalId Technologies (Pvt.) Ltd.",
     location: "Mirigama, Sri Lanka",
     period: "June 2024 – October 2024",
     type: "Full-time",
     description:
-      "Collaborated with cross-functional teams to deliver responsive, high-performance frontend solutions while contributing to codebase improvements.",
+      "Front-end and integration work on internal tooling and enterprise analytics solutions.",
     achievements: [
-      "Developed performance-optimized frontend components using modern JavaScript techniques, improving load times on key client applications",
-      "Created a custom annotation tool using vanilla JavaScript and jQuery that streamlined internal data labeling processes",
-      "Integrated solutions with open-source data platforms, including N8N and DataHub, enhancing data analytics capabilities for enterprise clients",
-      "Actively participated in agile ceremonies and translated UI/UX designs into responsive implementations that received client commendation",
+      "Built a custom JavaScript and jQuery annotation tool that streamlined internal data-labelling workflows",
+      "Integrated open-source data platforms (n8n, DataHub) to extend analytics capability for enterprise clients",
     ],
     technologies: [
       "React",
@@ -146,53 +172,73 @@ export const workExperience = [
       "VIS Network",
       "JavaScript",
       "jQuery",
-      "N8N",
+      "n8n",
       "DataHub",
       "HTML5",
       "CSS3",
+      "Git",
+      "Jira",
     ],
   },
   {
-    id: 5,
+    id: 4,
     title: "Software Engineer",
     company: "Simato Solutions (Pvt.) Ltd.",
     location: "Sri Jayawardenepura Kotte, Sri Lanka",
     period: "June 2022 – May 2024",
     type: "Full-time",
     description:
-      "Delivered full-stack solutions for client projects with a focus on scalable architecture and innovative features.",
+      "Delivered full-stack development across IDEAMART Appmaker (appmaker.lk) and STARS-LIVE (starslive.lk).",
     achievements: [
-      "Contributed core functionality to the Appmaker platform, enabling 100+ businesses to create mobile applications with minimal technical knowledge",
-      "Implemented real-time chat and media streaming features for the StarsLive platform, supporting 5K+ concurrent users during peak events",
-      "Resolved complex performance bottlenecks in Angular applications, improving response times on high-traffic modules",
-      "Integrated Genie payment gateway and implemented end-to-end subscription flows for Dialog and Mobitel",
-      "Mentored a junior developer on best practices of full-stack development methodologies",
+      "P2PChat: Designed and built a real-time chat application end-to-end: a Sails.js backend from scratch, an Angular and Angular Material frontend, and the full Socket.IO transport layer. Shipped as a self-contained application within the Appmaker platform",
+      "StarsLive live streaming: Replaced a failing third-party streaming implementation with AWS IVS, working directly from the service documentation. Eliminated recurring midstream failures and introduced adaptive bitrate delivery with automatic resolution switching. Integrated Video.js as the client player",
+      "StarsLive fan interaction queue: Built the fan-to-celebrity session queue over Socket.IO across both frontend and backend; diagnosed and resolved dropped-session and blank-stream defects in the live call flow",
+      "Genie payment gateway (Dialog, Mobitel): Migrated the integration across a breaking major API version, reworking endpoints for MSISDN detection, subscription initiation, renewal callbacks, and subscription status validation",
+      "Contributed to simato-commons, the shared internal npm module used across platform services. Integrated Google Analytics, Google Maps, Google Sheets, and Google OAuth 2.0; mentored a junior developer, and optimised database queries (MongoDB) for data-heavy screens",
     ],
     technologies: [
       "Angular",
-      "Node.js",
+      "Angular Material",
+      "AngularJS",
       "Sails.js",
+      "Node.js",
+      "Cordova",
+      "Ionic",
       "MongoDB",
       "Socket.IO",
-      "Payment Gateways",
       "WebSockets",
+      "Push Notifications",
+      "AWS IVS",
+      "Video.js",
+      "VimeoAPI",
+      "Genie Payment Gateway",
+      "Google APIs",
+      "Git",
+      "Jira",
     ],
   },
   {
-    id: 6,
+    id: 5,
     title: "Software Engineer Intern",
     company: "Simato Solutions (Pvt.) Ltd.",
     location: "Sri Jayawardenepura Kotte, Sri Lanka",
     period: "July 2020 – July 2021",
     type: "Internship",
     description:
-      "Extended due to exceptional performance. Supported development teams across multiple client projects.",
-    achievements: [
-      "Developed responsive UI components using AngularJS, Angular(2+), and Angular Material that were incorporated into production applications",
-      "Created reusable template components for the Appmaker platform that became standard offerings for new clients",
-      "Diagnosed and resolved bugs in existing Appmaker templates, improving stability and reducing support requests",
+      "Extended beyond the standard six-month term on performance. Contributed to IDEAMART Appmaker (appmaker.lk) alongside final-year university studies.",
+    achievements: [] as string[],
+    technologies: [
+      "Angular",
+      "Angular Material",
+      "AngularJS",
+      "Node.js",
+      "Sails.js",
+      "MongoDB",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "Jira",
     ],
-    technologies: ["AngularJS", "Angular", "Angular Material", "HTML5", "CSS3"],
   },
 ];
 
@@ -240,22 +286,20 @@ export const projects: Project[] = [
     title: "PurpleRoof",
     category: "Platform",
     description:
-      "A 14-repo microservices real-estate platform with LMS, Careers, and Mortgage modules — architected solo and running in production.",
+      "A production real-estate platform operating in the UAE and Sri Lanka, restructured from a stalled Laravel monolith into a service-oriented Node.js platform with LMS, Careers, and Mortgage modules.",
     longDescription:
-      "Architected and full-stack developed a real-estate platform spanning 14 independent microservice repositories: 5 NestJS services behind a PKCE-based SSO gateway, 5 Next.js portals (Home, User, Company, Admin, Career), and 3 internal npm packages published to GitHub Packages. Implemented a pure RBAC system with audit logging, JWT auth, Prisma/MySQL migrations, and GitHub Actions CI/CD on a CentOS production server (PM2-managed). Live in production since March 2026.",
+      "Lead developer and architect, working within a five-person team on two-week sprints. Restructured a stalled Laravel monolith into a service-oriented Node.js platform: five NestJS services behind a PKCE-based SSO gateway, five Next.js portals (Home, User, Company, Admin, Career), and three internal npm packages published to GitHub Packages. Implemented role-based access control with audit logging, JWT authentication, Prisma/MySQL migrations, and GitHub Actions CI/CD on a PM2-managed CentOS server. Live in production since March 2026.",
     technologies: [
       "NestJS",
       "Next.js",
       "TypeScript",
       "Prisma",
       "MySQL",
-      "Redis",
       "JWT",
       "PKCE SSO",
       "PM2",
       "Nginx",
       "GitHub Actions",
-      "Docker",
       "CentOS",
       "Tailwind CSS",
       "shadcn / Radix UI",
@@ -304,7 +348,7 @@ export const projects: Project[] = [
     description:
       "A dual-brand gemstone e-commerce platform (Ceylon SA Gems + Toronto SA Gems) with customer requests, gem reservations, and interest queues.",
     longDescription:
-      "Built a dual-brand gemstone e-commerce platform serving Ceylon SA Gems (SAG) and Toronto SA Gems (TSAG) from a single codebase on Express.js + MongoDB with Next.js and RTK Query frontends. Designed the Customer Request workflow (custom / specific / similar categories), 48-hour Gem Reservation system, and Interest Queue with cron-driven expiry and automated notifications. Deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager.",
+      "Built a dual-brand gemstone e-commerce platform serving Ceylon SA Gems (ceylonsagems.com) and Toronto SA Gems (torontosagems.com) on Express.js and MongoDB with Next.js/RTK Query frontends. Designed the customer request workflow, a 48-hour gem reservation system, and a cron-driven interest queue with automatic expiry. Deployed via Docker on AWS EC2 with S3, CloudFront, SES, and Secrets Manager.",
     technologies: [
       "Next.js",
       "Express.js",
@@ -345,7 +389,7 @@ export const projects: Project[] = [
   {
     id: 3,
     slug: "sa-constructions",
-    title: "SA Constructions",
+    title: "SA Construction",
     category: "Marketing Site",
     description:
       "A premium marketing single-page application for SA Construction, built for lead generation in residential and commercial construction markets.",
@@ -465,9 +509,9 @@ export const projects: Project[] = [
     title: "Reusable UI Components Library",
     category: "Library",
     description:
-      "A monorepo with 20+ production-ready React components, enterprise-grade form system, and interactive data visualization pieces — documented via Storybook.",
+      "A monorepo of 10+ reusable React components, a flexible form system with dynamic validation, and interactive data-visualization pieces, documented in Storybook.",
     longDescription:
-      "Built an enterprise-grade form system with dynamic validation, interactive data visualization components, and advanced UI elements. Implemented Storybook documentation, custom design system, and workspace architecture for scalable component development.",
+      "Built a flexible form system with dynamic Zod validation, interactive data-visualization components, and advanced UI elements. Implemented Storybook documentation, a custom design system, and a workspace architecture for scalable component development.",
     technologies: [
       "React 18",
       "TypeScript",
@@ -496,52 +540,95 @@ export const projects: Project[] = [
 ];
 
 export const overallProjectsCounts = [
-  { label: "Total Projects", value: "10+" },
-  { label: "Technologies", value: "30+" },
-  { label: "Live Projects", value: "5+" },
-  { label: "Open Source", value: "1" },
+  { label: "Total Projects", value: `${projects.length}` },
+  {
+    label: "Technologies",
+    value: `${new Set(projects.flatMap(project => project.technologies)).size}`,
+  },
+  {
+    label: "Live Projects",
+    value: `${projects.filter(project => project.status === "Live").length}`,
+  },
+  {
+    label: "Open Source",
+    value: `${projects.filter(project => project.githubUrl.startsWith("https://")).length}`,
+  },
 ];
 
-export const skills = {
-  frontend: [
-    { name: "React", level: 95, years: 5 },
-    { name: "Next.js", level: 90, years: 3 },
-    { name: "Angular", level: 90, years: 5 },
-    { name: "TypeScript", level: 92, years: 4 },
-    { name: "JavaScript", level: 95, years: 5 },
-    { name: "Tailwind CSS", level: 90, years: 3 },
-    { name: "shadcn / Radix UI", level: 85, years: 2 },
-    { name: "Framer Motion", level: 75, years: 2 },
-  ],
-  backend: [
-    { name: "Node.js", level: 92, years: 5 },
-    { name: "NestJS", level: 85, years: 1 },
-    { name: "Express.js", level: 90, years: 4 },
-    { name: "Sails.js", level: 75, years: 3 },
-    { name: "REST APIs", level: 95, years: 5 },
-    { name: "Socket.IO", level: 85, years: 3 },
-    { name: "Passport.js", level: 80, years: 1 },
-    { name: "Swagger / OpenAPI", level: 80, years: 1 },
-  ],
-  database: [
-    { name: "MongoDB", level: 90, years: 5 },
-    { name: "MySQL", level: 85, years: 2 },
-    { name: "PostgreSQL", level: 80, years: 2 },
-    { name: "Prisma", level: 85, years: 2 },
-    { name: "Mongoose", level: 85, years: 5 },
-    { name: "Redis", level: 75, years: 2 },
-  ],
-  tools: [
-    { name: "Git", level: 95, years: 5 },
-    { name: "Docker", level: 85, years: 2 },
-    { name: "AWS (EC2, S3, CloudFront, SES)", level: 80, years: 1 },
-    { name: "GitHub Actions", level: 85, years: 1 },
-    { name: "PM2", level: 80, years: 1 },
-    { name: "Nginx", level: 75, years: 2 },
-    { name: "Postman", level: 90, years: 5 },
-    { name: "Jira", level: 85, years: 4 },
-  ],
-};
+// Tiers and their order follow the CV. Levels only size the bars within each
+// tier's band (Core > 80, Working 60–80, Familiar 30–60) and are not displayed.
+export const skillTiers = [
+  {
+    id: "core",
+    label: "Core",
+    title: "Core (production depth)",
+    skills: [
+      { name: "Node.js", level: 95 },
+      { name: "Express.js", level: 90 },
+      { name: "Sails.js", level: 95 },
+      { name: "JavaScript (ES6+)", level: 88 },
+      { name: "Socket.IO / WebSockets", level: 85 },
+      { name: "REST API design", level: 85 },
+      { name: "MongoDB", level: 92 },
+      { name: "Mongoose", level: 88 },
+      { name: "Waterline ORM", level: 85 },
+      { name: "Angular", level: 87.5 },
+      { name: "HTML/CSS", level: 90 },
+      { name: "Git", level: 92 },
+      { name: "PM2", level: 80 },
+      { name: "Jira", level: 85 },
+    ],
+  },
+  {
+    id: "working",
+    label: "Working",
+    title: "Working proficiency",
+    skills: [
+      { name: "React", level: 78 },
+      { name: "Next.js", level: 77 },
+      { name: "NestJS", level: 76 },
+      { name: "TypeScript", level: 75 },
+      { name: "Tailwind CSS", level: 74 },
+      { name: "shadcn / Radix UI", level: 72 },
+      { name: "Prisma", level: 72 },
+      { name: "D3.js", level: 68 },
+      { name: "GitHub Actions", level: 70 },
+      { name: "Cordova", level: 64 },
+      { name: "Ionic", level: 62 },
+    ],
+  },
+  {
+    id: "familiar",
+    label: "Familiar",
+    title: "Familiar",
+    skills: [
+      { name: "MySQL", level: 60 },
+      { name: "PostgreSQL", level: 50 },
+      { name: "Redis", level: 45 },
+      { name: "Docker", level: 40 },
+      {
+        name: "AWS (EC2, S3, IVS, CloudFront, SES, Secrets Manager, IAM)",
+        level: 55,
+      },
+      { name: "Nginx", level: 50 },
+      { name: "Passport.js", level: 55 },
+      { name: "Swagger / OpenAPI", level: 50 },
+      { name: "Zod", level: 50 },
+      { name: "Framer Motion", level: 40 },
+      { name: "GSAP", level: 40 },
+    ],
+  },
+] as const;
+
+// Overall strength per domain, shown on the skills radar chart
+export const skillDomains = [
+  { name: "Backend", value: 85 },
+  { name: "Real-Time", value: 80 },
+  { name: "Databases", value: 75 },
+  { name: "Frontend", value: 90 },
+  { name: "Mobile", value: 60 },
+  { name: "DevOps & Cloud", value: 70 },
+];
 
 export const devTools = [
   "VS Code",
@@ -551,6 +638,11 @@ export const devTools = [
   "Jira",
   "GitHub",
   "GitLab",
+];
+
+export const languages = [
+  { name: "English", proficiency: "Full Professional Proficiency" },
+  { name: "Sinhala", proficiency: "Native" },
 ];
 
 export const education = {
@@ -566,23 +658,6 @@ export const education = {
     "Computer Architecture",
   ],
 };
-
-export const references = [
-  {
-    name: "Mr. Prasad Kumara",
-    title: "Development Manager",
-    company: "FocalId Technologies (Pvt.) Ltd.",
-    email: "prasad@focalid.tech",
-    phone: "(+94) 71 705 1717",
-  },
-  {
-    name: "Mr. Chamil Thusantha",
-    title: "Associate Software Architect",
-    company: "Simato Solutions (Pvt.) Ltd.",
-    email: "chamil@simatosolutions.com",
-    phone: "(+94) 77 207 0947",
-  },
-];
 
 export const testimonials = [
   {

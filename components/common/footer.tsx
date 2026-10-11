@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { personalInfo } from "@/lib/portfolio-data";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -24,7 +25,7 @@ export function Footer() {
               className="text-center md:text-left"
             >
               <p className="font-body text-sm text-muted-foreground">
-                {`© ${new Date().getFullYear()} Sidath Ranasinghe.`}
+                {`© ${new Date().getFullYear()} ${personalInfo.name}.`}
               </p>
             </motion.div>
 

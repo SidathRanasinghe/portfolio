@@ -2,25 +2,32 @@ import { Metadata } from "next";
 
 import { personalInfo } from "@/lib/portfolio-data";
 
+const title = `${personalInfo.name} - ${personalInfo.title}`;
+const description = `${personalInfo.tagline} Open to international relocation.`;
+
 export const siteMetadata: Metadata = {
-  title: "Sidath Ranasinghe - Senior Software Engineer",
-  description:
-    "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, Node.js, and MySQL/MongoDB. Open to international relocation.",
+  title,
+  description,
   keywords: [
+    "Full-Stack Engineer",
     "Software Engineer",
-    "Full-stack Developer",
-    "React",
-    "Next.js",
-    "NestJS",
     "Node.js",
+    "Express.js",
+    "Next.js",
+    "Angular",
+    "NestJS",
     "TypeScript",
-    "Microservices",
+    "Real-Time Systems",
+    "WebSockets",
+    "Socket.IO",
+    "API Integrations",
+    "MongoDB",
     "AWS",
     "Sri Lanka",
   ],
-  authors: [{ name: "Sidath Ranasinghe" }],
-  creator: "Sidath Ranasinghe",
-  publisher: "Sidath Ranasinghe",
+  authors: [{ name: personalInfo.name }],
+  creator: personalInfo.name,
+  publisher: personalInfo.name,
   formatDetection: {
     email: false,
     address: false,
@@ -36,24 +43,22 @@ export const siteMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: personalInfo.portfolio,
-    title: "Sidath Ranasinghe - Senior Software Engineer",
-    description:
-      "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
-    siteName: "Sidath Ranasinghe Portfolio",
+    title,
+    description,
+    siteName: `${personalInfo.name} Portfolio`,
     images: [
       {
         url: "/images/profile/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sidath Ranasinghe - Senior Software Engineer",
+        alt: title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sidath Ranasinghe - Senior Software Engineer",
-    description:
-      "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
+    title,
+    description,
     images: ["/images/social/twitter-image.png"],
     creator: "@sidath_ranasinghe",
   },

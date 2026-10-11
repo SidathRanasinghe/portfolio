@@ -5,7 +5,7 @@ import { ArrowDown, Download, Mail } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 
-import { personalInfo } from "@/lib/portfolio-data";
+import { heroRoles, personalInfo } from "@/lib/portfolio-data";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -23,7 +23,7 @@ export function HeroSection() {
       className="relative flex max-h-full min-h-screen items-center justify-center overflow-hidden py-16"
     >
       {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10"
           animate={{
@@ -39,10 +39,10 @@ export function HeroSection() {
             ease: "easeInOut",
           }}
         />
-      </div>
+      </div> */}
 
       {/* Floating Elements */}
-      <motion.div
+      {/* <motion.div
         className="absolute left-10 top-20 size-20 rounded-full bg-primary/10 blur-xl"
         animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
         transition={{
@@ -59,7 +59,7 @@ export function HeroSection() {
           repeat: Number.POSITIVE_INFINITY,
           ease: "easeInOut",
         }}
-      />
+      /> */}
 
       <div className="container-width section-padding relative z-10">
         <div className="mx-auto max-w-4xl text-center">
@@ -117,16 +117,7 @@ export function HeroSection() {
           >
             <div className="mb-4 font-body text-xl text-muted-foreground md:text-2xl lg:text-3xl">
               <TypeAnimation
-                sequence={[
-                  personalInfo.title,
-                  2000,
-                  "Full-stack Developer",
-                  2000,
-                  "NestJS & Microservices Architect",
-                  2000,
-                  "React & Next.js Engineer",
-                  2000,
-                ]}
+                sequence={heroRoles.flatMap(role => [role, 2000])}
                 wrapper="span"
                 speed={50}
                 repeat={Number.POSITIVE_INFINITY}

@@ -1,38 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Users, Zap, Award } from "lucide-react";
+import { Code2, Plug, Server, Zap } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { personalInfo, education, aboutTechs } from "@/lib/portfolio-data";
+import {
+  personalInfo,
+  education,
+  aboutTechs,
+  aboutHighlights,
+} from "@/lib/portfolio-data";
 
-const highlights = [
-  {
-    icon: Code2,
-    title: "Microservices Architecture",
-    description:
-      "Solo-architected PurpleRoof, a 14-repo production real-estate platform spanning NestJS services, Next.js portals, and published internal npm packages",
-  },
-  {
-    icon: Users,
-    title: "Team Mentorship",
-    description:
-      "Led front-end initiatives at FocalId, mentored junior developers, and established code quality standards that improved sprint velocity",
-  },
-  {
-    icon: Zap,
-    title: "Production Operations",
-    description:
-      "Runs live systems end-to-end: CI/CD on GitHub Actions, PM2-managed CentOS servers, and AWS (EC2, S3, CloudFront, SES, Secrets Manager)",
-  },
-  {
-    icon: Award,
-    title: "Proven Impact",
-    description:
-      "Built platforms serving 5K+ concurrent users and 100+ businesses; retained by multiple clients under ongoing maintenance agreements",
-  },
-];
+// Maps the icon keys in aboutHighlights to their Lucide icons
+const highlightIcons = {
+  architecture: Code2,
+  realtime: Zap,
+  integrations: Plug,
+  operations: Server,
+};
 
 export function AboutSection() {
   return (
@@ -104,35 +90,38 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="grid gap-6 sm:grid-cols-2"
           >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={highlight.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full border-border/50 transition-shadow duration-300 hover:shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="shrink-0">
-                        <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                          <highlight.icon className="size-6 text-primary" />
+            {aboutHighlights.map((highlight, index) => {
+              const HighlightIcon = highlightIcons[highlight.icon];
+              return (
+                <motion.div
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="h-full border-border/50 transition-shadow duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col items-start gap-y-2">
+                        <div className="flex w-full items-center gap-4">
+                          <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                            <HighlightIcon className="size-6 text-primary" />
+                          </div>
+                          <h4 className="font-sans text-sm font-semibold">
+                            {highlight.title}
+                          </h4>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="font-body text-sm leading-relaxed text-muted-foreground">
+                            {highlight.description}
+                          </p>
                         </div>
                       </div>
-                      <div className="space-y-2">
-                        <h4 className="font-sans text-sm font-semibold">
-                          {highlight.title}
-                        </h4>
-                        <p className="font-body text-sm leading-relaxed text-muted-foreground">
-                          {highlight.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
 
