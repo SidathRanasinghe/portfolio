@@ -17,15 +17,6 @@ export function HeroSection() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const downloadResume = () => {
-    const link = document.createElement("a");
-    link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_SE.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section
       id="home"
@@ -161,11 +152,13 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              onClick={downloadResume}
+              asChild
               className="group bg-transparent"
             >
-              <Download className="mr-2 size-5 transition-transform group-hover:scale-110" />
-              Download Resume
+              <a href={personalInfo.resumeUrl} download>
+                <Download className="mr-2 size-5 transition-transform group-hover:scale-110" />
+                Download Resume
+              </a>
             </Button>
           </motion.div>
 

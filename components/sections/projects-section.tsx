@@ -49,8 +49,9 @@ export function ProjectsSection() {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="mx-auto max-w-3xl text-pretty text-lg text-muted-foreground">
-            A showcase of innovative solutions, from AI-powered platforms to
-            scalable web applications that make a real impact.
+            Production systems built end-to-end, from a microservices
+            real-estate platform to e-commerce, marketing sites, and a reusable
+            component library.
           </p>
         </motion.div>
 

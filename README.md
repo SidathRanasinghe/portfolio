@@ -177,11 +177,11 @@ free to:
 
 **Sidath Ranasinghe**
 
-- Email: sidath.ranasinghe@gmail.com
+- Email: sidath.ranasinghe.work@gmail.com
 - LinkedIn:
   [linkedin.com/in/sidath-ranasinghe](https://linkedin.com/in/sidath-ranasinghe)
 - GitHub: [github.com/SidathRanasinghe](https://github.com/SidathRanasinghe)
-- Website: [sidath.io](https://sidath.io)
+- Website: [sidath.ryzeniclabs.com](https://sidath.ryzeniclabs.com)
 
 ---
 

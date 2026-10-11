@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+import { personalInfo } from "@/lib/portfolio-data";
+
 export const siteMetadata: Metadata = {
   title: "Sidath Ranasinghe - Senior Software Engineer",
   description:
@@ -25,7 +27,7 @@ export const siteMetadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_APP_URL || personalInfo.portfolio
   ),
   alternates: {
     canonical: "/",
@@ -33,7 +35,7 @@ export const siteMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sidath.ryzeniclabs.com",
+    url: personalInfo.portfolio,
     title: "Sidath Ranasinghe - Senior Software Engineer",
     description:
       "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",

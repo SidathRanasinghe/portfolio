@@ -22,15 +22,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const downloadResume = () => {
-    const link = document.createElement("a");
-    link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_SE.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -76,10 +67,12 @@ export function Navigation() {
               variant="outline"
               size="sm"
               className="ml-4 bg-transparent"
-              onClick={downloadResume}
+              asChild
             >
-              <Download className="mr-2 size-4" />
-              Resume
+              <a href={personalInfo.resumeUrl} download>
+                <Download className="mr-2 size-4" />
+                Resume
+              </a>
             </Button>
             <ThemeToggle />
           </div>
@@ -124,14 +117,16 @@ export function Navigation() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={downloadResume}
+                  asChild
                   className={cn(
                     "w-full",
                     scrolled ? "bg-transparent" : "bg-background/95"
                   )}
                 >
-                  <Download className="mr-2 size-4" />
-                  Download Resume
+                  <a href={personalInfo.resumeUrl} download>
+                    <Download className="mr-2 size-4" />
+                    Download Resume
+                  </a>
                 </Button>
               </div>
             </div>

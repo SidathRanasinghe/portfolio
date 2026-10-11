@@ -1,11 +1,11 @@
 {
   "name": "Sidath Ranasinghe - Senior Software Engineer",
   "short_name": "Sidath Ranasinghe",
-  "description": "Full-stack Software Engineer with 4+ years of experience in React, Angular, Node.js, and TypeScript.",
+  "description": "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0891b2",
+  "background_color": "#020817",
+  "theme_color": "#10b981",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -21,7 +21,7 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["automotive", "portfolio", "business"],
+  "categories": ["portfolio", "business", "technology"],
   "lang": "en",
   "dir": "ltr"
 }
