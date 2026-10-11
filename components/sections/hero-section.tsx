@@ -20,7 +20,7 @@ export function HeroSection() {
   const downloadResume = () => {
     const link = document.createElement("a");
     link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_CV.pdf";
+    link.download = "Sidath_Ranasinghe_SE.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -29,7 +29,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex max-h-full min-h-screen items-center justify-center overflow-hidden py-16"
     >
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5">

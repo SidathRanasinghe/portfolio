@@ -25,7 +25,7 @@ export function Navigation() {
   const downloadResume = () => {
     const link = document.createElement("a");
     link.href = personalInfo.resumeUrl;
-    link.download = "Sidath_Ranasinghe_CV.pdf";
+    link.download = "Sidath_Ranasinghe_SE.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -45,36 +45,38 @@ export function Navigation() {
     >
       <div className="container-width section-padding">
         <div className="flex h-16 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="gradient-text h-16 w-auto p-3 font-sans text-xl font-bold"
-          >
-            <Image
-              src={personalInfo.logo}
-              alt="Logo"
-              width={40}
-              height={40}
-              className="size-full object-cover"
-            />
-          </motion.div>
+          <div className="flex items-center gap-x-8">
+            <div className="gradient-text h-16 w-auto p-4 font-sans text-xl font-bold md:p-2.5">
+              <Image
+                src={personalInfo.logo}
+                alt="Logo"
+                width={40}
+                height={40}
+                className="size-full object-cover"
+              />
+            </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden items-center space-x-8 md:flex">
-            {navItems.map(item => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="font-medium text-foreground/80 transition-colors duration-200 hover:text-primary"
-              >
-                {item.name}
-              </a>
-            ))}
+            {/* Desktop Navigation */}
+            <div className="hidden items-center space-x-8 md:flex">
+              {navItems.map(item => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="font-medium text-foreground/80 transition-colors duration-200 hover:text-primary"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Resume Button & Theme toggler */}
+          <div className="hidden items-center space-x-4 md:flex">
             <Button
               variant="outline"
               size="sm"
-              onClick={downloadResume}
               className="ml-4 bg-transparent"
+              onClick={downloadResume}
             >
               <Download className="mr-2 size-4" />
               Resume

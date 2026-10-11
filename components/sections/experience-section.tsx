@@ -5,7 +5,10 @@ import { Calendar, MapPin, TrendingUp } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { overallExperience, workExperience } from "@/lib/portfolio-data";
+import {
+  // overallExperience,
+  workExperience,
+} from "@/lib/portfolio-data";
 
 export function ExperienceSection() {
   return (
@@ -146,7 +149,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Career Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -174,7 +177,7 @@ export function ExperienceSection() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

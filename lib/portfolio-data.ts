@@ -22,8 +22,8 @@ export const personalInfo = {
     "Full-stack Software Engineer with 5+ years of experience building production-grade web systems end-to-end — from microservices architecture (NestJS, Next.js, Prisma) through CI/CD and live server operations.",
   bio: "Recent work includes a 14-repository microservices real-estate platform and a multi-tenant AWS-hosted e-commerce system. Proven ability to lead projects, implement best practices, and mentor teams. Open to international relocation and on-site engagements.",
   profileImage: "/images/profile/sidath-profile.png",
-  resumeUrl: "/docs/Sidath_Ranasinghe_CV.pdf",
-  logo: "/images/logo/sidath.io.logo1.png",
+  resumeUrl: "/docs/Sidath_Ranasinghe_SE.pdf",
+  logo: "/images/logo/logo.png",
 };
 
 export const aboutTechs = [
@@ -196,12 +196,12 @@ export const workExperience = [
   },
 ];
 
-export const overallExperience = [
-  { label: "Years Experience", value: "5+" },
-  { label: "Clients & Companies", value: "5+" },
-  { label: "Major Projects", value: "10+" },
-  { label: "Users Impacted", value: "5K+" },
-];
+// export const overallExperience = [
+//   { label: "Years Experience", value: "5+" },
+//   { label: "Clients & Companies", value: "5+" },
+//   { label: "Major Projects", value: "10+" },
+//   { label: "Users Impacted", value: "5K+" },
+// ];
 
 export const projectCategories = [
   "All",

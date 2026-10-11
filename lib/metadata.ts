@@ -52,7 +52,7 @@ export const siteMetadata: Metadata = {
     title: "Sidath Ranasinghe - Senior Software Engineer",
     description:
       "Full-stack Software Engineer with 5+ years of experience building production-grade web systems with React, Next.js, NestJS, and Node.js.",
-    images: ["/images/social/twitter-image.jpg"],
+    images: ["/images/social/twitter-image.png"],
     creator: "@sidath_ranasinghe",
   },
   robots: {
