@@ -186,7 +186,7 @@ export default tseslint.config(
         node: true,
       },
       tailwindcss: {
-        config: "./tailwind.config.ts",
+        config: `${import.meta.dirname}/tailwind.config.ts`,
         cssFiles: [
           "**/*.css",
           "!**/node_modules",
